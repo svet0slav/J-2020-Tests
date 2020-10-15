@@ -47,7 +47,7 @@
     <Compile Include="ProgramEncoding.cs" />
     <Compile Include="ProgramGoedel.cs" />
     <Compile Include="ProgramLongestSubstring.cs" />
-    <Compile Include="ProgramMerge.cs" />
+    <Compile Include="ProgramMergeClasses.cs" />
     <Compile Include="ProgramNodesSum.cs" />
     <Compile Include="ProgramPossibleFSMMax.cs" />
     <Compile Include="ProgramRoboPathsMatrix.cs" />
@@ -62,6 +62,7 @@
     <Content Include="Description\GoedelNumbering.txt" />
     <Content Include="Description\SecretEncoding.txt" />
     <Content Include="Description\LongestSubstring.txt" />
+    <Content Include="Description\MergeClasses.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
