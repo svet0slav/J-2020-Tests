@@ -1,0 +1,65 @@
+﻿Count all possible strings that can be generated from a Finite State Machine
+Problem
+Submissions
+Leaderboard
+Discussions
+A finite state machine is a form of abstraction. It models the behaviour of a system by showing each state it can be in and the transitions between each state.
+
+Lets look at the folowing FSM.
+
+image
+
+Here S1 is the starting state and S4 is a final state. You can switch the states with the letters a, b and c.
+
+For example if you have the input ac you will start from S1 and finish at S4 which is a final state. That means that ac is a valid input for this FSM. If you finish at a non final state then the input will be invalid.
+
+Valid inputs:
+
+aaaaac
+aaacdb
+Invalid inputs:
+
+abcdb
+acda
+Note that the state machine is determinisic which means that you cannot make a transition to two different states using one letter.
+
+For a given FSM count all valid strings with length lower or equal than a given value.
+
+Input Format
+
+the first row contains the max size of a string.
+the second row contains the starting state.
+the third row contains a list of final states(comma separated characters).
+the remaining rows contain the transitions between the states in the form S,a,B (you can go from S to B with a).
+Constraints
+
+n < 10 where n is the number of states.
+m < 15 where m is the maximum number of transitions per state.
+Output Format
+
+int value
+
+Sample Input 0
+
+4
+S1
+S4
+S1,a,S2
+S2,a,S2
+S2,c,S4
+S2,b,S1
+S4,d,S3
+S3,b,S4
+S3,a,S1
+Sample Output 0
+
+5
+Explanation 0
+
+This is the FSM from the picture. The valid strings which size <= 4 are:
+
+aaac
+aac
+abac
+ac
+acdb

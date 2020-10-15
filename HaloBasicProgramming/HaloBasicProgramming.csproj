@@ -63,6 +63,7 @@
     <Content Include="Description\SecretEncoding.txt" />
     <Content Include="Description\LongestSubstring.txt" />
     <Content Include="Description\MergeClasses.txt" />
+    <Content Include="Description\PossibleFSMMax.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
