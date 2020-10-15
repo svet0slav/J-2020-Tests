@@ -1,0 +1,29 @@
+﻿Longest Substring With No Repeating Characters
+Problem
+Submissions
+Leaderboard
+Discussions
+Given a string, find the longest substring without repeating characters. If there is more than one string print the first you encounter.
+
+Given a string s, find the longest substring without repeating characters.
+
+For example, the longest substring without repeating characters for "abcabcbb" is "abc". For "bbbbb" the longest substring is "b".
+
+Input Format
+
+A single string.
+
+Constraints
+
+|s| < 90000
+
+Output Format
+
+The longest substring.
+
+Sample Input 0
+
+abcabcbb
+Sample Output 0
+
+abc

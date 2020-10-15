@@ -52,6 +52,7 @@
     <Compile Include="TestsEncoding.cs" />
     <Compile Include="TestsGoedel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestsLongestSubstring.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
