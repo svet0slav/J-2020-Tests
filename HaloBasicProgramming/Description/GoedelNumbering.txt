@@ -1,0 +1,51 @@
+﻿Gödel numbering
+Problem
+
+In mathematical logic, a Gödel numbering is a function that assigns to each symbol a unique natural number, called its Gödel number.
+
+Lets L = [σ1, σ2, σ3, ..., σn] be a list of symbols and s = σi1σi2...σim, 1 ≤ ij ≤ n for 1 ≤ j ≤ m be a string statement derived from the symbols of L. Then we can encode the statement as a natural number in the folowing way:
+
+g(s) = 2i1 x 3i2 x ... x Pim where P is the next prime number.
+
+For example, if we have a list of symbols: ["0", "="] and a statement 0=0 then the encoding is:
+
+g("0=0") = 2^1 x 3^2 x 51 = 90
+
+Find the natural number representation g(s) of a given list of symbols L and a statament s.
+
+Input Format
+
+The first line contains the list of possible symbols L
+
+The second line contains the statement s
+
+There are no emty spaces between the symbols.
+
+Constraints
+
+|L| <= 11
+|s| <= 35
+Output Format
+
+A natural number represented as a String
+
+Sample Input 0
+
+0,=
+0=0
+Sample Output 0
+
+90
+Explanation 0
+
+g("0=0") = 21 x 32 x 51 = 90
+Sample Input 1
+
+2,=,1,+
+1+1=2
+Sample Output 1
+
+43659000
+Explanation 1
+
+g("1+1=2") = 23 x 34 x 53 x 72 x 111 = 43659000
