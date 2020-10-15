@@ -16,6 +16,25 @@ namespace HaloBasicTests
             Assert.IsTrue(CompareArrays(result, new int[] { 1, 2, 3, 4, 5 }), "");
         }
 
+        [TestMethod]
+        public void TestMergeClasses_Case1()
+        {
+            var result = HaloBasicProgramming.TaskMergeClasses.merge(
+                new int[] { 1, 2, 4 },
+                new int[] { 3, 5, 6 });
+
+            Assert.IsTrue(CompareArrays(result, new int[] { 1, 2, 3, 4, 5, 6 }), "");
+        }
+
+        [TestMethod]
+        public void TestMergeClasses_Case2()
+        {
+            var result = HaloBasicProgramming.TaskMergeClasses.merge(
+                new int[] { 1, 3 },
+                new int[] { 1, 2, 3, 4 });
+
+            Assert.IsTrue(CompareArrays(result, new int[] { 1, 1, 2, 3, 3, 4 }), "");
+        }
 
         private bool CompareArrays(int[] actual, int[] expected)
         {
@@ -30,29 +49,5 @@ namespace HaloBasicTests
 
             return true;
         }
-
-
-
-//        Sample Input 0
-
-
-
-//Sample Output 0
-
-
-//Sample Input 1
-
-//1,2,4
-//3,5,6
-//Sample Output 1
-
-//1,2,3,4,5,6
-//Sample Input 2
-
-//1,3
-//1,2,3,4
-//Sample Output 2
-
-//1,1,2,3,3,4
     }
 }
