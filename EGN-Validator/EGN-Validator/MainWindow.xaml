@@ -1,0 +1,17 @@
+﻿<Window x:Class="EGN_Validator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EGN_Validator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Activated="Window_Activated">
+    <Grid>
+        <TextBox x:Name="txtEGNData" HorizontalAlignment="Left" Height="56" Margin="65,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="529"/>
+        <Label x:Name="lblEGNData" Content="Въведете ЕГН:" HorizontalAlignment="Left" Height="44" Margin="65,37,0,0" VerticalAlignment="Top" Width="368"/>
+        <Button Content="Проверка" HorizontalAlignment="Left" Height="56" Margin="416,147,0,0" VerticalAlignment="Top" Width="95" Click="Button_Click"/>
+        <TextBox x:Name="txtErrors" HorizontalAlignment="Left" Height="129" Margin="65,243,0,0" TextWrapping="Wrap" Text="Проблеми" VerticalAlignment="Top" Width="529"/>
+        <Label Content="Резултат" HorizontalAlignment="Left" Height="27" Margin="65,216,0,0" VerticalAlignment="Top" Width="268"/>
+
+    </Grid>
+</Window>
