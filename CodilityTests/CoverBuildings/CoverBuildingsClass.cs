@@ -50,5 +50,45 @@ namespace CodilityTests
             }
             return min;
         }
+
+        public int Solution2(int[] H)
+        {
+            // write your code in Java SE 8
+
+            int len = H.Length;
+            int[] sum = new int[len];
+            sum[0] = H[0];
+            int leftMax = H[0];
+            for(int i=1; i < len; i++)
+            {
+                if (H[i] > leftMax)
+                {
+                    leftMax = H[i];
+                }
+                sum[i] = (i + 1) * leftMax;
+            }
+
+            int rightMax = H[len-1];
+            sum[len - 2] += H[len - 1];
+            int min = sum[len - 2];
+            for(int ri = len-2; ri>0; ri--)
+            {
+                if (rightMax < H[ri])
+                {
+                    rightMax = H[ri];
+                }
+                sum[ri-1] += rightMax * (len - ri);
+                if (sum[ri] < min)
+                {
+                    min = sum[ri];
+                }
+            }
+            if (min > sum[0])
+            {
+                min = sum[0];
+            }
+
+            return min;
+        }
     }
 }
