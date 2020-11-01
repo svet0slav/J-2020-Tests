@@ -1,0 +1,2536 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://app.codility.com/programmers/task/cover_buildings/ -->
+<html lang="en" class="no-touch"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style id="autocompletion.css">.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {    background-color: #CAD6FA;    z-index: 1;}.ace_dark.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {    background-color: #3a674e;}.ace_editor.ace_autocomplete .ace_line-hover {    border: 1px solid #abbffe;    margin-top: -1px;    background: rgba(233,233,253,0.4);    position: absolute;    z-index: 2;}.ace_dark.ace_editor.ace_autocomplete .ace_line-hover {    border: 1px solid rgba(109, 150, 13, 0.8);    background: rgba(58, 103, 78, 0.62);}.ace_completion-meta {    opacity: 0.5;    margin: 0.9em;}.ace_completion-message {    color: blue;}.ace_editor.ace_autocomplete .ace_completion-highlight{    color: #2d69c7;}.ace_dark.ace_editor.ace_autocomplete .ace_completion-highlight{    color: #93ca12;}.ace_editor.ace_autocomplete {    width: 300px;    z-index: 200000;    border: 1px lightgray solid;    position: fixed;    box-shadow: 2px 3px 5px rgba(0,0,0,.2);    line-height: 1.4;    background: #fefefe;    color: #111;}.ace_dark.ace_editor.ace_autocomplete {    border: 1px #484747 solid;    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.51);    line-height: 1.4;    background: #25282c;    color: #c1c1c1;}
+/*# sourceURL=ace/css/autocompletion.css */</style><style>.ace_snippet-marker {    -moz-box-sizing: border-box;    box-sizing: border-box;    background: rgba(194, 193, 208, 0.09);    border: 1px dotted rgba(211, 208, 235, 0.62);    position: absolute;}</style><style>    .error_widget_wrapper {        background: inherit;        color: inherit;        border:none    }    .error_widget {        border-top: solid 2px;        border-bottom: solid 2px;        margin: 5px 0;        padding: 10px 40px;        white-space: pre-wrap;    }    .error_widget.ace_error, .error_widget_arrow.ace_error{        border-color: #ff5a5a    }    .error_widget.ace_warning, .error_widget_arrow.ace_warning{        border-color: #F1D817    }    .error_widget.ace_info, .error_widget_arrow.ace_info{        border-color: #5a5a5a    }    .error_widget.ace_ok, .error_widget_arrow.ace_ok{        border-color: #5aaa5a    }    .error_widget_arrow {        position: absolute;        border: solid 5px;        border-top-color: transparent!important;        border-right-color: transparent!important;        border-left-color: transparent!important;        top: -5px;    }</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;color: black;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}
+/*# sourceURL=ace/css/ace-tm */</style><style id="ace_editor.css">.ace_br1 {border-top-left-radius    : 3px;}.ace_br2 {border-top-right-radius   : 3px;}.ace_br3 {border-top-left-radius    : 3px; border-top-right-radius:    3px;}.ace_br4 {border-bottom-right-radius: 3px;}.ace_br5 {border-top-left-radius    : 3px; border-bottom-right-radius: 3px;}.ace_br6 {border-top-right-radius   : 3px; border-bottom-right-radius: 3px;}.ace_br7 {border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px;}.ace_br8 {border-bottom-left-radius : 3px;}.ace_br9 {border-top-left-radius    : 3px; border-bottom-left-radius:  3px;}.ace_br10{border-top-right-radius   : 3px; border-bottom-left-radius:  3px;}.ace_br11{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-left-radius:  3px;}.ace_br12{border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br13{border-top-left-radius    : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br14{border-top-right-radius   : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br15{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;}.ace_editor {position: relative;overflow: hidden;padding: 0;font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;direction: ltr;text-align: left;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;cursor: text;}.ace_content {position: absolute;box-sizing: border-box;min-width: 100%;contain: style size layout;font-variant-ligatures: no-common-ligatures;}.ace_dragging .ace_scroller:before{position: absolute;top: 0;left: 0;right: 0;bottom: 0;content: '';background: rgba(250, 250, 250, 0.01);z-index: 1000;}.ace_dragging.ace_dark .ace_scroller:before{background: rgba(0, 0, 0, 0.01);}.ace_selecting, .ace_selecting * {cursor: text !important;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;contain: style size layout;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {position: absolute;top: 0;left: 0;right: 0;padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");}.ace_scrollbar {contain: strict;position: absolute;right: 0;bottom: 0;z-index: 6;}.ace_scrollbar-inner {position: absolute;cursor: text;left: 0;top: 0;}.ace_scrollbar-v{overflow-x: hidden;overflow-y: scroll;top: 0;}.ace_scrollbar-h {overflow-x: scroll;overflow-y: hidden;left: 0;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;contain: strict;-ms-user-select: text;-moz-user-select: text;-webkit-user-select: text;user-select: text;white-space: pre!important;}.ace_text-input.ace_composition {background: transparent;color: inherit;z-index: 1000;opacity: 1;}.ace_composition_placeholder { color: transparent }.ace_composition_marker { border-bottom: 1px solid;position: absolute;border-radius: 0;margin-top: 1px;}[ace_nocontext=true] {transform: none!important;filter: none!important;clip-path: none!important;mask : none!important;contain: none!important;perspective: none!important;mix-blend-mode: initial!important;z-index: auto;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;word-wrap: normal;white-space: pre;height: 100%;width: 100%;box-sizing: border-box;pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;height: 1000000px;contain: style size layout;}.ace_text-layer {font: inherit !important;position: absolute;height: 1000000px;width: 1000000px;contain: style size layout;}.ace_text-layer > .ace_line, .ace_text-layer > .ace_line_group {contain: style size layout;position: absolute;top: 0;left: 0;right: 0;}.ace_hidpi .ace_text-layer,.ace_hidpi .ace_gutter-layer,.ace_hidpi .ace_content,.ace_hidpi .ace_gutter {contain: strict;will-change: transform;}.ace_hidpi .ace_text-layer > .ace_line, .ace_hidpi .ace_text-layer > .ace_line_group {contain: strict;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;box-sizing: border-box;border-left: 2px solid;transform: translatez(0);}.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_slim-cursors .ace_cursor {border-left-width: 1px;}.ace_overwrite-cursors .ace_cursor {border-left-width: 0;border-bottom: 1px solid;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_hasPlaceholder .ace_hidden-cursors .ace_cursor {opacity: 0;}.ace_smooth-blinking .ace_cursor {transition: opacity 0.18s;}.ace_animate-blinking .ace_cursor {animation-duration: 1000ms;animation-timing-function: step-end;animation-name: blink-ace-animate;animation-iteration-count: infinite;}.ace_animate-blinking.ace_smooth-blinking .ace_cursor {animation-duration: 1000ms;animation-timing-function: ease-in-out;animation-name: blink-ace-animate-smooth;}@keyframes blink-ace-animate {from, to { opacity: 1; }60% { opacity: 0; }}@keyframes blink-ace-animate-smooth {from, to { opacity: 1; }45% { opacity: 1; }60% { opacity: 0; }85% { opacity: 0; }}.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_error_bracket {position: absolute;border-bottom: 1px solid #DE5555;border-radius: 0;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;box-sizing: border-box;}.ace_line .ace_fold {box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi+P//fxgTAwPDBxDxD078RSX+YeEyDFMCIMAAI3INmXiwf2YAAAAASUVORK5CYII=");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi+P//fz4TAwPDZxDxD5X4i5fLMEwJgAADAEPVDbjNw87ZAAAAAElFTkSuQmCC");}.ace_tooltip {background-color: #FFF;background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;max-width: 100%;padding: 3px 4px;position: fixed;z-index: 999999;box-sizing: border-box;cursor: default;white-space: pre;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;pointer-events: none;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42mWKsQ0AMAzC8ixLlrzQjzmBiEjp0A6WwBCSPgKAXoLkqSot7nN3yMwR7pZ32NzpKkVoDBUxKAAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42m3HwQkAMAhD0YzsRchFKI7sAikeWkrxwScEB0nh5e7KTPWimZki4tYfVbX+MNl4pyZXejUO1QAAAABJRU5ErkJggg==");}.ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAGCAYAAAAG5SQMAAAAOUlEQVR42jXKwQkAMAgDwKwqKD4EwQ26sSOkVWjgIIHAzPiCgaqiqnJHZnKICBERHN194O5b9vbLuAVRL+l0YWnZAAAAAElFTkSuQmCCXA==");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_inline_button {border: 1px solid lightgray;display: inline-block;margin: -1px 8px;padding: 0 5px;pointer-events: auto;cursor: pointer;}.ace_inline_button:hover {border-color: gray;background: rgba(200,200,200,0.2);display: inline-block;pointer-events: auto;}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}.ace_error-marker {background-color: rgba(255, 0, 0,0.2);position: absolute;z-index: 9;}.ace_highlight-marker {background-color: rgba(255, 255, 0,0.2);position: absolute;z-index: 8;}.ace_mobile-menu {position: absolute;line-height: 1.5;border-radius: 4px;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;background: white;box-shadow: 1px 3px 2px grey;border: 1px solid #dcdcdc;color: black;}.ace_dark > .ace_mobile-menu {background: #333;color: #ccc;box-shadow: 1px 3px 2px grey;border: 1px solid #444;}.ace_mobile-button {padding: 2px;cursor: pointer;overflow: hidden;}.ace_mobile-button:hover {background-color: #eee;opacity:1;}.ace_mobile-button:active {background-color: #ddd;}.ace_placeholder {font-family: arial;transform: scale(0.9);transform-origin: left;white-space: pre;opacity: 0.7;margin: 0 10px;}
+/*# sourceURL=ace/css/ace_editor.css */</style>
+    
+    
+    <meta http-equiv="content-language" content="en-gb">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    
+      <title>
+        
+          CoverBuildings coding task - Learn to Code - Codility
+        
+      </title>
+    
+
+    <script src="./CoverBuildings coding task - Learn to Code - Codility_files/all.js.download" async="" crossorigin="anonymous"></script><script async="" src="./CoverBuildings coding task - Learn to Code - Codility_files/insight.beta.min.js.download"></script><script>window.config = {"csrfToken": "TWyCuwBMsszWL5pUHySFlvKMsH0FcFuk3Bono2jM2C1gk377jJAGo9tbHFoJ9laN", "supportEmail": "support@codility.com", "whiteLabel": false, "collaborateUrl": "https://app.codility.com/services/codelive/collaborate/", "staticUrl": "/static/", "isRecruiter": false, "cacheId": "a263acd1e92fb26d6feeea857cae945e33c02c03"};</script>
+    <script type="application/json" id="data-bag-external-urls">{"analytics_survey": "https://www.surveymonkey.com/r/V9WY87X", "blog": "https://www.codility.com/blog/", "codelive_product_tour": "https://www.codility.com/product-tour/codelive/", "cookie_policy": "https://www.codility.com/cookie-policy/", "data_privacy_notice": "https://www.codility.com/data-privacy-notice/", "data_processing_agreement": "https://www.codility.com/data-processing-agreement/", "demo": "https://www.codility.com/request-a-demo/", "dmca_policy": "https://www.codility.com/dmca-policy/", "facebook_profile": "https://www.facebook.com/Codility/", "fair_use_policy": "https://www.codility.com/fair-use-policy/", "github_profile": "https://github.com/Codility/", "google_privacy_policy": "https://careers.google.com/privacy-policy/", "google_terms_of_service_programmers": "https://policies.google.com/terms?hl=en", "help_center": "https://support.codility.com/", "help_center_analytics": "https://support.codility.com/hc/en-us/articles/360055451253-Analytics-Dashboard", "help_center_anti_cheating_methods": "https://support.codility.com/hc/en-us/articles/360043319434-Anti-Cheating-Methods", "help_center_cancellation_and_refund": "https://support.codility.com/hc/en-us/articles/360043824333-Cancellation-and-Refund-policies", "help_center_codelive_interview": " https://support.codility.com/hc/en-us/articles/360043828053-How-to-Use-CodeLive", "help_center_custom_tasks": "https://support.codility.com/hc/en-us/articles/360043319994-Exclusive-Tasks", "help_center_fairness_rating": "https://support.codility.com/hc/en-us/articles/360051585814-What-does-Fairness-Rating-mean-", "help_center_greenhouse": "https://support.codility.com/hc/en-us/articles/360043824653-Integrating-with-Greenhouse", "help_center_icims": "https://support.codility.com/hc/en-us/articles/360043317754-Integrating-with-iCIMS", "help_center_jobvite": "https://support.codility.com/hc/en-us/articles/360043317794-Integrating-with-Jobvite", "help_center_lever": "https://support.codility.com/hc/en-us/articles/360043317954-Integrating-with-Lever-ATS", "help_center_recruitee": "https://support.codility.com/hc/en-us/articles/360043317974-Integrating-with-Recruitee", "help_center_similarity_check": "https://support.codility.com/hc/en-us/articles/360043825273-Similarity-check-and-what-to-do", "help_center_slack": "https://support.codility.com/hc/en-us/articles/360043824553-Integrating-with-Slack", "help_center_smartrecruiters": "https://support.codility.com/hc/en-us/articles/360043824613-Integrating-with-SmartRecruiters", "help_center_taleo": "https://support.codility.com/hc/en-us/articles/360043317994-Integrating-with-Oracle-s-Taleo", "help_center_teamtailor": "https://support.codility.com/hc/en-us/articles/360052599973-Integrating-with-Teamtailor-ATS", "help_center_training": "https://support.codility.com/hc/en-us/articles/360043318034-Using-Codility-for-Training", "help_center_training_videos": "https://support.codility.com/hc/en-us/sections/360008588994-Training-Videos", "help_center_weighted_scoring": "https://support.codility.com/hc/en-us/articles/360047471133-Weighted-Scoring", "help_center_workable": "https://support.codility.com/hc/en-us/articles/360043317874-Integrating-with-Workable", "help_center_anti_bias_workflow": "https://support.codility.com/hc/en-us/articles/360050024513-Anonymization-Anti-bias-features", "help_center_creating_a_great_screening_test": "https://support.codility.com/hc/en-us/articles/360043320374-Creating-a-Great-Screening-Test", "help_center_encourage_more_candidates_to_take_my_tests": "https://support.codility.com/hc/en-us/articles/360043823833-How-can-I-encourage-more-of-my-candidates-to-take-my-test-", "help_center_review_workflow": "https://support.codility.com/hc/en-us/articles/360055796114-Candidate-Review-Workflow", "homepage": "https://www.codility.com", "jobs": "https://apply.workable.com/codility/", "linkedin_profile": "https://www.linkedin.com/company/codility", "new_pdf_report_only_on_staging": "https://jenson.herokuapp.com/pdf", "pricing": "https://www.codility.com/pricing/", "privacy_policy": "https://www.codility.com/privacy-policy/", "referral_greenhouse": "https://go.greenhouse.io/referral-codility.html", "referral_icims": "https://www3.icims.com/mktg/identify-and-hire-the-most-qualified-candidates/?type=partner&utm_campaign=701i0000001uqgv", "referral_jobvite": "http://web.jobvite.com/FY17_Website_Codility_Demo_LP.html", "referral_recruitee": "https://recruitee.com/demo/form?utm_medium=affiliate&utm_source=codility&utm_campaign=codility", "referral_smartrecruiter": "https://www.smartrecruiters.com/resources/get-a-demo/?utm_source=codility_promo", "releases": "https://support.codility.com/hc/en-us/categories/360003126813", "terms_of_service_for_companies": "https://www.codility.com/terms-of-service/", "twilio_network_check": "https://networktest.twilio.com", "twitter_profile": "https://twitter.com/Codility", "twitter_share_challenge": "https://twitter.com/intent/tweet", "linkedin_share_challenge": "https://www.linkedin.com/profile/add", "typeform_candidate_survey": "https://codility.typeform.com/to/j0mdCu", "typeform_candidate_survey_reports": "https://codility.typeform.com/report/j0mdCu/YDe4AHPhUHTP5IyD", "typeform_codelive_recruiter_survey": "https://codility.typeform.com/to/rIyGTA", "typeform_codelive_candidate_survey": "https://codility.typeform.com/to/qd9fL0wu", "typeform_sponsored_challenge_diversity_survey": "https://codility.typeform.com/to/mFtyljM8", "weighted_scoring_blog_page": "https://www.codility.com/blog/new-find-the-right-candidate-for-right-now-with-weighted-scoring/", "salesforce_search": "https://emea.salesforce.com/_ui/search/ui/UnifiedSearchResults"}</script>
+    <script type="application/json" id="data-bag-features">{"features": [{"name": "CODELIVE_WHITEBOARD_V2"}, {"name": "CAN_EXPORT_PDF"}, {"name": "TEST_REVIEWER_ASSIGNMENT_ROLLOUT"}, {"name": "WEIGHTED_SCORING_ROLLOUT"}]}</script>
+
+    
+    
+    
+<link rel="apple-touch-icon" sizes="180x180" href="https://app.codility.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://app.codility.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://app.codility.com/favicon-16x16.png">
+<link rel="manifest" href="https://app.codility.com/site.webmanifest">
+<link rel="mask-icon" href="https://app.codility.com/safari-pinned-tab.svg" color="#1B6994">
+<meta name="theme-color" content="#1B6994">
+
+
+    <style>
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: Roboto, sans-serif;
+  }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  iframe {
+    border: none;
+  }
+
+  button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+  }
+</style>
+
+    <link rel="stylesheet" href="./CoverBuildings coding task - Learn to Code - Codility_files/overrides.auto.css">
+
+    
+  
+      <link rel="stylesheet" href="./CoverBuildings coding task - Learn to Code - Codility_files/css">
+      <link rel="stylesheet" href="./CoverBuildings coding task - Learn to Code - Codility_files/jquery-ui-1.12.1.min.css">
+    
+
+  <link rel="stylesheet" href="./CoverBuildings coding task - Learn to Code - Codility_files/css(1)">
+  <link rel="stylesheet" href="./CoverBuildings coding task - Learn to Code - Codility_files/css(2)">
+  <link rel="stylesheet" href="./CoverBuildings coding task - Learn to Code - Codility_files/icon">
+  <link rel="stylesheet" href="./CoverBuildings coding task - Learn to Code - Codility_files/semantic.min.css">
+  <link rel="stylesheet" href="./CoverBuildings coding task - Learn to Code - Codility_files/material-icons.css">
+  <link rel="stylesheet" href="./CoverBuildings coding task - Learn to Code - Codility_files/base-programmers.auto.css">
+
+
+    
+
+
+
+
+    
+      <script type="application/json" id="data-bag-raven">{"dsn": "https://3c62a8dced574696a68571c03fbc875c@sentry.codility.net/11", "user": {"is_recruiter": false, "is_programmer": true, "id": 554043, "username": "svetoslav0ivanov@gmail.com", "email": "svetoslav0ivanov@gmail.com", "is_superuser": false}}</script><script src="./CoverBuildings coding task - Learn to Code - Codility_files/raven.auto.js.download"></script>
+    
+
+    
+      <script type="application/json" id="data-bag-settings">{"DEBUG": false, "STATIC_URL": "/static/", "SUPPORT": "support@codility.com", "TESTING": false, "ENABLE_NEW_REPORT": false}</script>
+    
+
+    
+  
+  
+      <script type="application/json" id="data-bag-context">{}</script>
+      <script src="./CoverBuildings coding task - Learn to Code - Codility_files/jquery-one-twelve-four.min.js.download"></script>
+      <script src="./CoverBuildings coding task - Learn to Code - Codility_files/jquery-migrate-1.4.1.min.js.download"></script>
+      <script src="./CoverBuildings coding task - Learn to Code - Codility_files/jquery-fix-xss-vulnerability-in-1.12.js.download"></script>
+      <script src="./CoverBuildings coding task - Learn to Code - Codility_files/jquery-ui-1.12.1.min.js.download"></script>
+      <script src="./CoverBuildings coding task - Learn to Code - Codility_files/runtime.auto.js.download"></script>
+<script src="./CoverBuildings coding task - Learn to Code - Codility_files/common-chunks.auto.js.download"></script>
+<script src="./CoverBuildings coding task - Learn to Code - Codility_files/polyfills.auto.js.download"></script>
+      <script src="./CoverBuildings coding task - Learn to Code - Codility_files/base-empty.auto.js.download"></script>
+    
+  <!-- programmers_home analytics --><script type="application/json" id="data-bag-analytics">{"hotjar": {"id": "209174"}, "linkedin": {"id": "12616"}}</script><script async="" src="./CoverBuildings coding task - Learn to Code - Codility_files/analytics.auto.js.download"></script>
+  <script src="./CoverBuildings coding task - Learn to Code - Codility_files/semantic.min.js.download"></script>
+  <script src="./CoverBuildings coding task - Learn to Code - Codility_files/ace.auto.js.download"></script>
+<script src="./CoverBuildings coding task - Learn to Code - Codility_files/programmers.auto.js.download"></script>
+
+  <script src="./CoverBuildings coding task - Learn to Code - Codility_files/view.auto.js.download"></script><script src="./CoverBuildings coding task - Learn to Code - Codility_files/hotjar-209174.js.download" async=""></script><script src="./CoverBuildings coding task - Learn to Code - Codility_files/insight.min.js.download" async=""></script>
+
+
+    
+    
+
+    
+    
+    
+    
+    
+  <script async="" src="./CoverBuildings coding task - Learn to Code - Codility_files/modules.8831d20acac5f9d5fa63.js.download" charset="utf-8"></script><style type="text/css">iframe#_hjRemoteVarsFrame {display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;}</style><style type="text/css">/*
+ * contextMenu.js v 1.4.0
+ * Author: Sudhanshu Yadav
+ * s-yadav.github.com
+ * Copyright (c) 2013 Sudhanshu Yadav.
+ * Dual licensed under the MIT and GPL licenses
+**/
+
+.iw-contextMenu {
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.10) !important;
+    border: 1px solid #c8c7cc !important;
+    border-radius: 11px !important;
+    display: none;
+    z-index: 1000000132;
+    max-width: 300px !important;
+    width: auto !important;
+}
+
+.dark-mode .iw-contextMenu,
+.TnITTtw-dark-mode.iw-contextMenu,
+.TnITTtw-dark-mode .iw-contextMenu {
+    border-color: #747473 !important;
+}
+
+.iw-cm-menu {
+    background: #fff !important;
+    color: #000 !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    overflow: visible !important;
+}
+
+.dark-mode .iw-cm-menu,
+.TnITTtw-dark-mode.iw-cm-menu,
+.TnITTtw-dark-mode .iw-cm-menu {
+    background: #525251 !important;
+    color: #FFF !important;
+}
+
+.iw-curMenu {
+}
+
+.iw-cm-menu li {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, Ubuntu, sans-serif !important;
+    list-style: none !important;
+    padding: 10px !important;
+    padding-right: 20px !important;
+    border-bottom: 1px solid #c8c7cc !important;
+    font-weight: 400 !important;
+    cursor: pointer !important;
+    position: relative !important;
+    font-size: 14px !important;
+    margin: 0 !important;
+    line-height: inherit !important;
+    border-radius: 0 !important;
+    display: block !important;
+}
+
+.dark-mode .iw-cm-menu li, .TnITTtw-dark-mode .iw-cm-menu li {
+    border-bottom-color: #747473 !important;
+}
+
+.iw-cm-menu li:first-child {
+    border-top-left-radius: 11px !important;
+    border-top-right-radius: 11px !important;
+}
+
+.iw-cm-menu li:last-child {
+    border-bottom-left-radius: 11px !important;
+    border-bottom-right-radius: 11px !important;
+    border-bottom: none !important;
+}
+
+.iw-mOverlay {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0px !important;
+    left: 0px !important;
+    background: #FFF !important;
+    opacity: .5 !important;
+}
+
+.iw-contextMenu li.iw-mDisable {
+    opacity: 0.3 !important;
+    cursor: default !important;
+}
+
+.iw-mSelected {
+    background-color: #F6F6F6 !important;
+}
+
+.dark-mode .iw-mSelected, .TnITTtw-dark-mode .iw-mSelected {
+    background-color: #676766 !important;
+}
+
+.iw-cm-arrow-right {
+    width: 0 !important;
+    height: 0 !important;
+    border-top: 5px solid transparent !important;
+    border-bottom: 5px solid transparent !important;
+    border-left: 5px solid #000 !important;
+    position: absolute !important;
+    right: 5px !important;
+    top: 50% !important;
+    margin-top: -5px !important;
+}
+
+.dark-mode .iw-cm-arrow-right, .TnITTtw-dark-mode .iw-cm-arrow-right {
+    border-left-color: #FFF !important;
+}
+
+.iw-mSelected > .iw-cm-arrow-right {
+}
+
+/*context menu css end */</style><style type="text/css">@-webkit-keyframes load4 {
+    0%,
+    100% {
+        box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+    }
+    12.5% {
+        box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    25% {
+        box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    37.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    50% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    62.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+    }
+    75% {
+        box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+    }
+    87.5% {
+        box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+    }
+}
+
+@keyframes load4 {
+    0%,
+    100% {
+        box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+    }
+    12.5% {
+        box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    25% {
+        box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    37.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    50% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    62.5% {
+        box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+    }
+    75% {
+        box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+    }
+    87.5% {
+        box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+    }
+}</style><style type="text/css">/* This is not a zero-length file! */</style><style data-styled="active" data-styled-version="5.1.1"></style><script id="facebook-jssdk" src="./CoverBuildings coding task - Learn to Code - Codility_files/all.js(1).download"></script><script id="twitter-wjs" src="./CoverBuildings coding task - Learn to Code - Codility_files/widgets.js.download"></script><style type="text/css" data-fbcssmodules="css:fb.css.basecss:fb.css.dialog css:fb.css.iframewidget">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style></head>
+
+  
+
+  <body class="body  
+  flex-body
+" style="" data-new-gr-c-s-check-loaded="14.981.0">
+    
+      <input type="hidden" name="csrfmiddlewaretoken" value="cTHaXJktCgud7BoSXSYUOR9HqjzGDXJ9myxVRf2tcqWxGz65z3GVRvS6FhXKADpC">
+    
+
+    
+    
+
+    
+  <div class="flex-flexible">
+    
+
+    
+
+<div class="js-programmers-navbar" style="margin: auto; max-width: 996px" data-raw-active-page="&quot;challenges&quot;" data-raw-is-logged-in="true" data-raw-login-next="&quot;/programmers/task/cover_buildings/&quot;" data-raw-logout-next="&quot;programmers&quot;" data-raw-user="&quot;Svetoslav&quot;"><section class="Section-ezlxdn-0 dCiDnN"><div height="58" class="UntypedBox__Wrapper-sc-4e7tnk-0 bjmqdt"><div class="UntypedBox__Wrapper-sc-4e7tnk-0 iGombw"><div class="Logo__Wrapper-zvecf3-0 gYrzqZ"><canvas height="62" width="235" class="Logo__AspectRatioHelper-zvecf3-1 tlpTd"></canvas><svg width="235" height="62" viewBox="0 0 235 62" focusable="false" aria-label="Logo" class="Logo__LogoSvg-zvecf3-2 gboYEY"><defs><path id="midnight-full_svg__a" d="M.082-.001h26.581v6.754H.082z"></path><path id="midnight-full_svg__c" d="M0 .073h36.35V46.84H0z"></path><path id="midnight-full_svg__e" d="M.358.328h51.52v60.195H.358z"></path><path id="midnight-full_svg__g" d="M.085.482H8.99v8.944H.085z"></path><path id="midnight-full_svg__i" d="M.028.482h8.906v8.944H.028z"></path></defs><g fill="none"><g transform="translate(206.843 41.42)"><mask id="midnight-full_svg__b" fill="#fff"><use xlink:href="#midnight-full_svg__a"></use></mask><path fill="#393C4B" d="M1.212 6.753c-.374 0-.712-.176-.926-.484-.214-.306-.263-.683-.132-1.035L1.814.736c.162-.442.588-.737 1.058-.737h22.662c.623 0 1.13.505 1.13 1.128v4.499c0 .621-.507 1.127-1.13 1.127H1.212z" mask="url(#midnight-full_svg__b)"></path></g><g transform="translate(0 2.844)"><mask id="midnight-full_svg__d" fill="#fff"><use xlink:href="#midnight-full_svg__c"></use></mask><path fill="#393C4B" d="M22.765 46.84C10.213 46.84 0 36.35 0 23.456 0 10.564 10.213.073 22.765.073c4.72 0 9.249 1.471 13.096 4.257.264.19.433.472.477.794.045.326-.043.647-.248.903-1.331 1.679-2.765 3.48-3.988 5-.23.286-.585.457-.949.457-.257 0-.5-.083-.697-.242-2.267-1.811-4.927-2.769-7.69-2.769-7.401 0-13.422 6.845-13.422 15.255 0 8.413 6.02 15.257 13.421 15.257 2.867 0 5.605-1.022 7.919-2.954.206-.172.458-.262.73-.262.372 0 .735.175.97.468 1.157 1.443 2.476 3.098 3.706 4.649.205.256.293.578.248.903-.044.322-.213.604-.477.795-3.846 2.784-8.374 4.256-13.096 4.256" mask="url(#midnight-full_svg__d)"></path></g><path fill="#393C4B" d="M54.09 22.198c-4.974 0-9.02 4.381-9.02 9.764 0 5.382 4.046 9.762 9.02 9.762 4.975 0 9.021-4.38 9.021-9.762 0-5.383-4.046-9.764-9.02-9.764m0 26.8c-9.487 0-17.203-7.718-17.203-17.203 0-9.486 7.716-17.203 17.203-17.203 9.486 0 17.202 7.717 17.202 17.203 0 9.485-7.716 17.204-17.202 17.204m37.467-26.801c-4.974 0-9.02 4.381-9.02 9.764 0 5.382 4.046 9.762 9.02 9.762 4.975 0 9.021-4.38 9.021-9.762 0-5.383-4.046-9.764-9.02-9.764m.33 26.797c-4.892.09-9.454-1.822-12.812-5.362-3.28-3.456-4.948-7.99-4.697-12.769.463-8.794 7.727-15.937 16.537-16.26.275-.011.548-.013.82-.011 2.85.023 5.647.77 8.141 2.149.315.174.701-.053.701-.413V2.348c0-.646.525-1.17 1.17-1.17h5.84c.648 0 1.172.524 1.172 1.17V47.26c0 .503-.408.912-.91.912h-6.36c-.504 0-.912-.41-.912-.912v-.8l-.317.175c-2.57 1.423-5.434 2.304-8.373 2.359m40.67-.822c-.646 0-1.173-.526-1.173-1.172V2.35c0-.647.527-1.172 1.173-1.172h5.835c.648 0 1.174.525 1.174 1.172V47c0 .646-.526 1.172-1.174 1.172h-5.835zm15.821 0c-.648 0-1.174-.526-1.174-1.172V16.853c0-.647.526-1.173 1.174-1.173h5.834c.648 0 1.174.526 1.174 1.173V47c0 .646-.526 1.172-1.174 1.172h-5.834zm-31.22 0c-.65 0-1.177-.528-1.177-1.177V16.857c0-.65.528-1.177 1.178-1.177h5.826c.65 0 1.178.527 1.178 1.177v30.138c0 .65-.528 1.177-1.178 1.177h-5.826z"></path><g transform="translate(160.287 .849)"><mask id="midnight-full_svg__f" fill="#fff"><use xlink:href="#midnight-full_svg__e"></use></mask><path fill="#393C4B" d="M28.875 60.523c-.388 0-.737-.182-.958-.501-.221-.317-.271-.708-.135-1.072l3.563-9.56c.418-1.124.418-2.36 0-3.485L22.487 22.14c-.175-.472-.633-.79-1.138-.79h-7.644c-.616 0-1.119.502-1.119 1.118v14.328c0 2.08 1.693 3.773 3.773 3.773h6.3c.41 0 .781.259.924.643l1.714 4.647c.125.339.078.702-.127.999-.208.296-.533.465-.894.465H13.06c-4.773 0-8.655-3.882-8.655-8.653V22.55c0-.662-.538-1.2-1.2-1.2H1.536c-.65 0-1.178-.528-1.178-1.176v-4.167c0-.65.529-1.176 1.178-1.176h1.662c.666 0 1.206-.541 1.206-1.207V1.5c0-.647.526-1.172 1.173-1.172h5.836c.647 0 1.173.525 1.173 1.172v11.947c0 .763.621 1.384 1.385 1.384h13.133c.465 0 .886.293 1.05.728l6.963 18.685c.147.395.515.65.937.65.42 0 .788-.255.936-.65l6.977-18.721c.155-.414.556-.692.996-.692h5.85c.354 0 .672.166.873.456.203.291.247.648.123.98L35.596 59.764c-.168.454-.607.758-1.092.758h-5.63z" mask="url(#midnight-full_svg__f)"></path></g><g transform="translate(115.557 .184)"><mask id="midnight-full_svg__h" fill="#fff"><use xlink:href="#midnight-full_svg__g"></use></mask><path fill="#393C4B" d="M4.538 9.426C2.083 9.426.085 7.42.085 4.954.085 2.487 2.083.48 4.538.48s4.453 2.006 4.453 4.473c0 2.466-1.998 4.472-4.453 4.472" mask="url(#midnight-full_svg__h)"></path></g><g transform="translate(146.816 .184)"><mask id="midnight-full_svg__j" fill="#fff"><use xlink:href="#midnight-full_svg__i"></use></mask><path fill="#393C4B" d="M4.481 9.426C2.026 9.426.028 7.42.028 4.954.028 2.487 2.026.48 4.48.48s4.453 2.006 4.453 4.473c0 2.466-1.998 4.472-4.453 4.472" mask="url(#midnight-full_svg__j)"></path></g></g></svg></div><p class="text__P-sc-1rm5cia-1 ktEgfW specificity-increaser text__BasicText-sc-1rm5cia-3 NavBar__LogoText-t4un3i-0 crgHdQ">for Programmers</p></div><div class="UntypedBox__Wrapper-sc-4e7tnk-0 bQLxwf"><a class="Button__LinkWrapper-hbh4t9-1 DBcpX has-min-width" role="link" tabindex="0" href="https://app.codility.com/programmers/lessons/" target="_self" rel="noopener noreferrer">Lessons</a><a class="Button__LinkWrapper-hbh4t9-1 dvyWdE has-min-width" role="link" tabindex="0" href="https://app.codility.com/programmers/challenges/" target="_self" rel="noopener noreferrer">Challenges</a><button class="Button__Wrapper-hbh4t9-0 knrAKw" role="button" tabindex="0" data-test-id="account-dropdown" aria-controls="dropdown-auto-id-1-list" aria-expanded="false" aria-haspopup="menu" aria-owns="dropdown-auto-id-1-list" id="dropdown-auto-id-1" type="button"><svg viewBox="0 0 48 48" focusable="false" class="Icon__IconWrapper-sc-11q5sbx-0 hHHSCS ButtonIcon-sc-1le4o5g-0 jPkZiI has-min-height has-min-width"><path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm0 6c3.31 0 6 2.69 6 6 0 3.32-2.69 6-6 6s-6-2.68-6-6c0-3.31 2.69-6 6-6zm0 28.4c-5.01 0-9.41-2.56-12-6.44.05-3.97 8.01-6.16 12-6.16s11.94 2.19 12 6.16c-2.59 3.88-6.99 6.44-12 6.44z"></path></svg>Hi, Svetoslav<div class="DropdownArrow-yepg0h-0 LQogm"></div></button></div></div></section></div>
+
+
+    
+  
+    <div class="challenge_view">
+      <div class="challenges_box">
+        <div class="challenges_list">
+  <div class="upcoming-challenges">
+    UPCOMING CHALLENGES:
+  </div>
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/olx_group2020/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      The OLX Group challenge
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/97a80f3f98a8bc1a0eac9cba07d296e3612f14f0.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+    <div class="short_timer js-timer" style="margin-top: 8px" data-countdown="425195.981489" data-template="{days} days {hours} hours left"><span><span class="timer-days">4</span> days <span class="timer-hours">21</span> hours left</span></div>
+  
+</a>
+
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  <div class="current-challenges">
+    CURRENT CHALLENGES:
+  </div>
+  
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/silver2020/" class="challenge-item  running">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Silver 2020
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  <div class="past-challenges">
+    PAST CHALLENGES
+  </div>
+  
+    
+  
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/palladium2020/" class="challenge-item current ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Palladium 2020
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/iress.jpg" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/rhodium2019/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Rhodium 2019
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/codility_navy_big_1.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/ruthenium2019/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Ruthenium 2019
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/codility_navy_big_1.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/technetium2019/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Technetium 2019
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/Vector_logo.jpg" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/molybdenum2019/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Molybdenum 2019
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/codility_navy_big_1.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/niobium2019/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Niobium 2019
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/codility_navy_big_1.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/zirconium2019/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Zirconium 2019
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/asseco_poland_RGB.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/yttrium2019/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Yttrium 2019
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/Zalando-Lounge_Logo_WEB.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/strontium2019/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Strontium 2019
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/codility_navy_big.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/rubidium2018/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Rubidium 2018
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/deutsche-bank-db-logo.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/arsenicum2018/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Arsenicum 2018
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/codility_navy_small.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/krypton2018/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Krypton 2018
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/Okta_Logo_BrightBlue_Medium.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/bromum2018/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Bromum 2018
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/Betssongroup.png_5.jpg" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/future_mobility2018/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Future Mobility
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/VCC_Ironmark_Screen_RGB_PNG.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/grand2018/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Grand Challenge
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/petuum-logo.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/digital_gold/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Digital Gold
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/ASML.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/selenium2018/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Selenium 2018
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/adyen-logo-rgb-green.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/germanium2018/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Germanium 2018
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/Zalando-Logo.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/gallium2018/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Gallium 2018
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/codility_navy_small.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/zinc2018/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Zinc 2018
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/zinc_logo.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/cuprum2018/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Cuprum 2018
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/circles_logo.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/cutting_complexity2018/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Cutting Complexity
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/ASML.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/nickel2018/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Nickel 2018
+    </div>
+    
+      <img src="./CoverBuildings coding task - Learn to Code - Codility_files/avature-logo.png" style="max-height: 20px; flex: 0 0 auto; margin-left: 8px; max-width: 90px">
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/cobaltum2018/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Cobaltum 2018
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/ferrum2018/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Ferrum 2018
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/manganum2017/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Manganum 2017
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/chromium2017/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Chromium 2017
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/vanadium2016/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Vanadium 2016
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/titanium2016/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Titanium 2016
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/scandium2016/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Scandium 2016
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/calcium2015/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Calcium 2015
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/kalium2015/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Kalium 2015
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/argon2015/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Argon 2015
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/chlorum2014/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Chlorum 2014
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/sulphur2014/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Sulphur 2014
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/phosphorus2014/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Phosphorus 2014
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/silicium2014/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Silicium 2014
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/aluminium2014/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Aluminium 2014
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/magnesium2014/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Magnesium 2014
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/natrium2014/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Natrium 2014
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/neon2014/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Neon 2014
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/fluorum2014/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Fluorum 2014
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/oxygenium2014/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Oxygenium 2014
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/nitrogenium2013/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Nitrogenium 2013
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/carbo2013/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Carbo 2013
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/boron2013/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Boron 2013
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/beryllium2013/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Beryllium 2013
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/lithium2013/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Lithium 2013
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/helium2013/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Helium 2013
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/hydrogenium2013/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Hydrogenium 2013
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/omega2013/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Omega 2013
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/psi2012/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Psi 2012
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/chi2012/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Chi 2012
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/phi2012/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Phi 2012
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/upsilon2012/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Upsilon 2012
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/tau2012/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Tau 2012
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/sigma2012/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Sigma 2012
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/rho2012/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Rho 2012
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/pi2012/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Pi 2012
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/omicron2012/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Omicron 2012
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/xi2012/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Xi 2012
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/nu2011/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Nu 2011
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/mu2011/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Mu 2011
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/lambda2011/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Lambda 2011
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/kappa2011/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Kappa 2011
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/iota2011/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Iota 2011
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/theta2011/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Theta 2011
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/eta2011/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Eta 2011
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/zeta2011/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Zeta 2011
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/epsilon2011/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Epsilon 2011
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/delta2011/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Delta 2011
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/gamma2011/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Gamma 2011
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/beta2010/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Beta 2010
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+    
+      <a href="https://app.codility.com/programmers/challenges/alpha2010/" class="challenge-item  ">
+  <div class="title" style="align-items: center; display: flex; justify-content: space-between">
+    <div>
+      Alpha 2010
+    </div>
+    
+  </div>
+  
+</a>
+
+    
+  
+</div>
+
+        <div class="chosen_challenge">
+          
+
+<div class="task-box task-box-programmers is-available task-cover_buildings diff-2" data-task="cover_buildings">
+
+  <div class="difficulty">
+    <span class="one"><span class="two three"></span></span>
+  </div>
+
+  <div class="main-column">
+
+    <div class="layout-floated">
+      <div class="left">
+        
+          <h4 class="title">
+            
+            <a href="https://app.codility.com/programmers/task/cover_buildings/">
+              CoverBuildings
+            </a>
+          </h4>
+        
+      </div>
+
+      <div class="right">
+        
+        
+
+        
+        
+          
+            <a href="https://app.codility.com/demo/take-sample-test/palladium2020/" class="prog-button blue ga" data-ga-action="Challenge Start" data-ga-label="Palladium 2020">START</a>
+          
+        
+      </div>
+    </div>
+
+    <div class="synopsis">
+        Given N rectangular buildings of width 1, find the minimum total area of two rectangular banners that cover all of the buildings.
+    </div>
+
+  </div>
+
+</div>
+
+          <div class="task-detail">
+            <div class="header">
+  <span class="pl">
+    Programming language:
+    <select name="pl" class="js-programming-lang">
+      
+        <option value="c">C</option>
+              
+        <option value="cpp">C++</option>
+              
+        <option value="cs">C#</option>
+              
+        <option value="go">Go</option>
+              
+        <option value="java11">Java 11</option>
+              
+        <option value="java" selected="">Java 8</option>
+              
+        <option value="js">JavaScript</option>
+              
+        <option value="kt">Kotlin</option>
+              
+        <option value="lua">Lua</option>
+              
+        <option value="m">Objective-C</option>
+              
+        <option value="pas">Pascal</option>
+              
+        <option value="pl">Perl</option>
+              
+        <option value="php">PHP</option>
+              
+        <option value="py">Python</option>
+              
+        <option value="rb">Ruby</option>
+              
+        <option value="scala">Scala</option>
+              
+        <option value="swift4">Swift 4</option>
+              
+        <option value="vb">Visual Basic</option>
+              
+    </select>
+  </span>
+
+  <span class="hl" style="display: none;">
+    Spoken language:
+    <select name="hl">
+      
+        <option value="en" selected="">English</option>
+      
+    </select>
+  </span>
+</div> 
+
+            
+<div class="descriptions">
+  
+    <div class="desc desc-c-en" style="display: none;">
+      
+        
+
+
+
+
+<div class="brinza-task-description">
+<p>There are N rectangular buildings standing along the road next to each other. The K-th building is of size H[K] × 1.</p>
+<p>Because a renovation of all of the buildings is planned, we want to cover them with rectangular banners until the renovations are finished. Of course, to cover a building, the banner has to be at least as high as the building. We can cover more than one building with a banner if it is wider than 1.</p>
+<p>For example, to cover buildings of heights 3, 1, 4 we could use a banner of size 4×3 (i.e. of height 4 and width 3), marked here in blue:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/e44e2d9f713b39f75c4705a664a24458.png" alt="Buildings of sizes (3 × 1), (1 × 1), (4 × 1), covered with scaffolding of size 4×3"></p>
+<p>We can order at most two banners and we want to cover all of the buildings. Also, we want to minimize the amount of material needed to produce the banners.</p>
+<p>What is the minimum total area of at most two banners which cover all of the buildings?</p>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>int solution(int H[], int N);</tt></p></blockquote>
+<p>that, given an array H consisting of N integers, returns the minimum total area of at most two banners that we will have to order.</p>
+<p><b>Examples:</b></p>
+<p>1. Given H = [3, 1, 4], the function should return 10. The result can be achieved by covering the first two buildings with a banner of size 3×2 and the third building with a banner of size 4×1:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/15a3d076fc3d427d4aa6867e63116d39.png" alt="Illustration of first example"></p>
+<p>2. Given H = [5, 3, 2, 4], the function should return 17. The result can be achieved by covering the first building with a banner of size 5×1 and the other buildings with a banner of size 4×3:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/764950b9daed4087b2085b47bee4e473.png" alt="Illustration of second example"></p>
+<p>3. Given H = [5, 3, 5, 2, 1], your function should return 19. The result can be achieved by covering the first three buildings with a banner of size 5×3 and the other two with a banner of size 2×2:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/9410aa7fbd190c305a5757f856276d48.png" alt="Illustration of third example"></p>
+<p>4. Given H = [7, 7, 3, 7, 7], your function should return 35. The result can be achieved by using one banner of size 7×5:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/7ecbcaf2876fadfe435f4c99234bbcba.png" alt="Illustration of fourth example"></p>
+<p>5. Given H = [1, 1, 7, 6, 6, 6], your function should return 30. The result can be achieved by using banners of size 1×2 and 7×4:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/024fc0c5e7c3271a2f440a3c82482c5e.png" alt="Illustration of fifth example"></p>
+<p>Write an <b><b>efficient</b></b> algorithm for the following assumptions:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">1</span>..<span class="number">100,000</span>];</li>
+<li>each element of array H is an integer within the range [<span class="number">1</span>..<span class="number">10,000</span>].</li>
+</ul>
+</blockquote></div>
+<div style="margin-top:5px">
+<small>Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</small>
+</div>
+
+
+      
+    </div>
+  
+    <div class="desc desc-cpp-en" style="display: none;">
+      
+        
+
+
+
+
+<div class="brinza-task-description">
+<p>There are N rectangular buildings standing along the road next to each other. The K-th building is of size H[K] × 1.</p>
+<p>Because a renovation of all of the buildings is planned, we want to cover them with rectangular banners until the renovations are finished. Of course, to cover a building, the banner has to be at least as high as the building. We can cover more than one building with a banner if it is wider than 1.</p>
+<p>For example, to cover buildings of heights 3, 1, 4 we could use a banner of size 4×3 (i.e. of height 4 and width 3), marked here in blue:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/e44e2d9f713b39f75c4705a664a24458.png" alt="Buildings of sizes (3 × 1), (1 × 1), (4 × 1), covered with scaffolding of size 4×3"></p>
+<p>We can order at most two banners and we want to cover all of the buildings. Also, we want to minimize the amount of material needed to produce the banners.</p>
+<p>What is the minimum total area of at most two banners which cover all of the buildings?</p>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>int solution(vector&lt;int&gt; &amp;H);</tt></p></blockquote>
+<p>that, given an array H consisting of N integers, returns the minimum total area of at most two banners that we will have to order.</p>
+<p><b>Examples:</b></p>
+<p>1. Given H = [3, 1, 4], the function should return 10. The result can be achieved by covering the first two buildings with a banner of size 3×2 and the third building with a banner of size 4×1:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/15a3d076fc3d427d4aa6867e63116d39.png" alt="Illustration of first example"></p>
+<p>2. Given H = [5, 3, 2, 4], the function should return 17. The result can be achieved by covering the first building with a banner of size 5×1 and the other buildings with a banner of size 4×3:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/764950b9daed4087b2085b47bee4e473.png" alt="Illustration of second example"></p>
+<p>3. Given H = [5, 3, 5, 2, 1], your function should return 19. The result can be achieved by covering the first three buildings with a banner of size 5×3 and the other two with a banner of size 2×2:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/9410aa7fbd190c305a5757f856276d48.png" alt="Illustration of third example"></p>
+<p>4. Given H = [7, 7, 3, 7, 7], your function should return 35. The result can be achieved by using one banner of size 7×5:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/7ecbcaf2876fadfe435f4c99234bbcba.png" alt="Illustration of fourth example"></p>
+<p>5. Given H = [1, 1, 7, 6, 6, 6], your function should return 30. The result can be achieved by using banners of size 1×2 and 7×4:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/024fc0c5e7c3271a2f440a3c82482c5e.png" alt="Illustration of fifth example"></p>
+<p>Write an <b><b>efficient</b></b> algorithm for the following assumptions:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">1</span>..<span class="number">100,000</span>];</li>
+<li>each element of array H is an integer within the range [<span class="number">1</span>..<span class="number">10,000</span>].</li>
+</ul>
+</blockquote></div>
+<div style="margin-top:5px">
+<small>Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</small>
+</div>
+
+
+      
+    </div>
+  
+    <div class="desc desc-cs-en" style="">
+      
+        
+
+
+
+
+<div class="brinza-task-description">
+<p>There are N rectangular buildings standing along the road next to each other. The K-th building is of size H[K] × 1.</p>
+<p>Because a renovation of all of the buildings is planned, we want to cover them with rectangular banners until the renovations are finished. Of course, to cover a building, the banner has to be at least as high as the building. We can cover more than one building with a banner if it is wider than 1.</p>
+<p>For example, to cover buildings of heights 3, 1, 4 we could use a banner of size 4×3 (i.e. of height 4 and width 3), marked here in blue:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/e44e2d9f713b39f75c4705a664a24458.png" alt="Buildings of sizes (3 × 1), (1 × 1), (4 × 1), covered with scaffolding of size 4×3"></p>
+<p>We can order at most two banners and we want to cover all of the buildings. Also, we want to minimize the amount of material needed to produce the banners.</p>
+<p>What is the minimum total area of at most two banners which cover all of the buildings?</p>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>class Solution { public int solution(int[] H); }</tt></p></blockquote>
+<p>that, given an array H consisting of N integers, returns the minimum total area of at most two banners that we will have to order.</p>
+<p><b>Examples:</b></p>
+<p>1. Given H = [3, 1, 4], the function should return 10. The result can be achieved by covering the first two buildings with a banner of size 3×2 and the third building with a banner of size 4×1:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/15a3d076fc3d427d4aa6867e63116d39.png" alt="Illustration of first example"></p>
+<p>2. Given H = [5, 3, 2, 4], the function should return 17. The result can be achieved by covering the first building with a banner of size 5×1 and the other buildings with a banner of size 4×3:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/764950b9daed4087b2085b47bee4e473.png" alt="Illustration of second example"></p>
+<p>3. Given H = [5, 3, 5, 2, 1], your function should return 19. The result can be achieved by covering the first three buildings with a banner of size 5×3 and the other two with a banner of size 2×2:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/9410aa7fbd190c305a5757f856276d48.png" alt="Illustration of third example"></p>
+<p>4. Given H = [7, 7, 3, 7, 7], your function should return 35. The result can be achieved by using one banner of size 7×5:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/7ecbcaf2876fadfe435f4c99234bbcba.png" alt="Illustration of fourth example"></p>
+<p>5. Given H = [1, 1, 7, 6, 6, 6], your function should return 30. The result can be achieved by using banners of size 1×2 and 7×4:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/024fc0c5e7c3271a2f440a3c82482c5e.png" alt="Illustration of fifth example"></p>
+<p>Write an <b><b>efficient</b></b> algorithm for the following assumptions:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">1</span>..<span class="number">100,000</span>];</li>
+<li>each element of array H is an integer within the range [<span class="number">1</span>..<span class="number">10,000</span>].</li>
+</ul>
+</blockquote></div>
+<div style="margin-top:5px">
+<small>Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</small>
+</div>
+
+
+      
+    </div>
+  
+    <div class="desc desc-go-en" style="display: none;">
+      
+        
+
+
+
+
+<div class="brinza-task-description">
+<p>There are N rectangular buildings standing along the road next to each other. The K-th building is of size H[K] × 1.</p>
+<p>Because a renovation of all of the buildings is planned, we want to cover them with rectangular banners until the renovations are finished. Of course, to cover a building, the banner has to be at least as high as the building. We can cover more than one building with a banner if it is wider than 1.</p>
+<p>For example, to cover buildings of heights 3, 1, 4 we could use a banner of size 4×3 (i.e. of height 4 and width 3), marked here in blue:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/e44e2d9f713b39f75c4705a664a24458.png" alt="Buildings of sizes (3 × 1), (1 × 1), (4 × 1), covered with scaffolding of size 4×3"></p>
+<p>We can order at most two banners and we want to cover all of the buildings. Also, we want to minimize the amount of material needed to produce the banners.</p>
+<p>What is the minimum total area of at most two banners which cover all of the buildings?</p>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>func Solution(H []int) int</tt></p></blockquote>
+<p>that, given an array H consisting of N integers, returns the minimum total area of at most two banners that we will have to order.</p>
+<p><b>Examples:</b></p>
+<p>1. Given H = [3, 1, 4], the function should return 10. The result can be achieved by covering the first two buildings with a banner of size 3×2 and the third building with a banner of size 4×1:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/15a3d076fc3d427d4aa6867e63116d39.png" alt="Illustration of first example"></p>
+<p>2. Given H = [5, 3, 2, 4], the function should return 17. The result can be achieved by covering the first building with a banner of size 5×1 and the other buildings with a banner of size 4×3:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/764950b9daed4087b2085b47bee4e473.png" alt="Illustration of second example"></p>
+<p>3. Given H = [5, 3, 5, 2, 1], your function should return 19. The result can be achieved by covering the first three buildings with a banner of size 5×3 and the other two with a banner of size 2×2:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/9410aa7fbd190c305a5757f856276d48.png" alt="Illustration of third example"></p>
+<p>4. Given H = [7, 7, 3, 7, 7], your function should return 35. The result can be achieved by using one banner of size 7×5:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/7ecbcaf2876fadfe435f4c99234bbcba.png" alt="Illustration of fourth example"></p>
+<p>5. Given H = [1, 1, 7, 6, 6, 6], your function should return 30. The result can be achieved by using banners of size 1×2 and 7×4:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/024fc0c5e7c3271a2f440a3c82482c5e.png" alt="Illustration of fifth example"></p>
+<p>Write an <b><b>efficient</b></b> algorithm for the following assumptions:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">1</span>..<span class="number">100,000</span>];</li>
+<li>each element of array H is an integer within the range [<span class="number">1</span>..<span class="number">10,000</span>].</li>
+</ul>
+</blockquote></div>
+<div style="margin-top:5px">
+<small>Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</small>
+</div>
+
+
+      
+    </div>
+  
+    <div class="desc desc-java-en" style="display: none;">
+      
+        
+
+
+
+
+<div class="brinza-task-description">
+<p>There are N rectangular buildings standing along the road next to each other. The K-th building is of size H[K] × 1.</p>
+<p>Because a renovation of all of the buildings is planned, we want to cover them with rectangular banners until the renovations are finished. Of course, to cover a building, the banner has to be at least as high as the building. We can cover more than one building with a banner if it is wider than 1.</p>
+<p>For example, to cover buildings of heights 3, 1, 4 we could use a banner of size 4×3 (i.e. of height 4 and width 3), marked here in blue:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/e44e2d9f713b39f75c4705a664a24458.png" alt="Buildings of sizes (3 × 1), (1 × 1), (4 × 1), covered with scaffolding of size 4×3"></p>
+<p>We can order at most two banners and we want to cover all of the buildings. Also, we want to minimize the amount of material needed to produce the banners.</p>
+<p>What is the minimum total area of at most two banners which cover all of the buildings?</p>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>class Solution { public int solution(int[] H); }</tt></p></blockquote>
+<p>that, given an array H consisting of N integers, returns the minimum total area of at most two banners that we will have to order.</p>
+<p><b>Examples:</b></p>
+<p>1. Given H = [3, 1, 4], the function should return 10. The result can be achieved by covering the first two buildings with a banner of size 3×2 and the third building with a banner of size 4×1:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/15a3d076fc3d427d4aa6867e63116d39.png" alt="Illustration of first example"></p>
+<p>2. Given H = [5, 3, 2, 4], the function should return 17. The result can be achieved by covering the first building with a banner of size 5×1 and the other buildings with a banner of size 4×3:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/764950b9daed4087b2085b47bee4e473.png" alt="Illustration of second example"></p>
+<p>3. Given H = [5, 3, 5, 2, 1], your function should return 19. The result can be achieved by covering the first three buildings with a banner of size 5×3 and the other two with a banner of size 2×2:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/9410aa7fbd190c305a5757f856276d48.png" alt="Illustration of third example"></p>
+<p>4. Given H = [7, 7, 3, 7, 7], your function should return 35. The result can be achieved by using one banner of size 7×5:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/7ecbcaf2876fadfe435f4c99234bbcba.png" alt="Illustration of fourth example"></p>
+<p>5. Given H = [1, 1, 7, 6, 6, 6], your function should return 30. The result can be achieved by using banners of size 1×2 and 7×4:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/024fc0c5e7c3271a2f440a3c82482c5e.png" alt="Illustration of fifth example"></p>
+<p>Write an <b><b>efficient</b></b> algorithm for the following assumptions:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">1</span>..<span class="number">100,000</span>];</li>
+<li>each element of array H is an integer within the range [<span class="number">1</span>..<span class="number">10,000</span>].</li>
+</ul>
+</blockquote></div>
+<div style="margin-top:5px">
+<small>Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</small>
+</div>
+
+
+      
+    </div>
+  
+    <div class="desc desc-java11-en" style="display: none;">
+      
+        
+
+
+
+
+<div class="brinza-task-description">
+<p>There are N rectangular buildings standing along the road next to each other. The K-th building is of size H[K] × 1.</p>
+<p>Because a renovation of all of the buildings is planned, we want to cover them with rectangular banners until the renovations are finished. Of course, to cover a building, the banner has to be at least as high as the building. We can cover more than one building with a banner if it is wider than 1.</p>
+<p>For example, to cover buildings of heights 3, 1, 4 we could use a banner of size 4×3 (i.e. of height 4 and width 3), marked here in blue:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/e44e2d9f713b39f75c4705a664a24458.png" alt="Buildings of sizes (3 × 1), (1 × 1), (4 × 1), covered with scaffolding of size 4×3"></p>
+<p>We can order at most two banners and we want to cover all of the buildings. Also, we want to minimize the amount of material needed to produce the banners.</p>
+<p>What is the minimum total area of at most two banners which cover all of the buildings?</p>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>class Solution { public int solution(int[] H); }</tt></p></blockquote>
+<p>that, given an array H consisting of N integers, returns the minimum total area of at most two banners that we will have to order.</p>
+<p><b>Examples:</b></p>
+<p>1. Given H = [3, 1, 4], the function should return 10. The result can be achieved by covering the first two buildings with a banner of size 3×2 and the third building with a banner of size 4×1:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/15a3d076fc3d427d4aa6867e63116d39.png" alt="Illustration of first example"></p>
+<p>2. Given H = [5, 3, 2, 4], the function should return 17. The result can be achieved by covering the first building with a banner of size 5×1 and the other buildings with a banner of size 4×3:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/764950b9daed4087b2085b47bee4e473.png" alt="Illustration of second example"></p>
+<p>3. Given H = [5, 3, 5, 2, 1], your function should return 19. The result can be achieved by covering the first three buildings with a banner of size 5×3 and the other two with a banner of size 2×2:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/9410aa7fbd190c305a5757f856276d48.png" alt="Illustration of third example"></p>
+<p>4. Given H = [7, 7, 3, 7, 7], your function should return 35. The result can be achieved by using one banner of size 7×5:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/7ecbcaf2876fadfe435f4c99234bbcba.png" alt="Illustration of fourth example"></p>
+<p>5. Given H = [1, 1, 7, 6, 6, 6], your function should return 30. The result can be achieved by using banners of size 1×2 and 7×4:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/024fc0c5e7c3271a2f440a3c82482c5e.png" alt="Illustration of fifth example"></p>
+<p>Write an <b><b>efficient</b></b> algorithm for the following assumptions:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">1</span>..<span class="number">100,000</span>];</li>
+<li>each element of array H is an integer within the range [<span class="number">1</span>..<span class="number">10,000</span>].</li>
+</ul>
+</blockquote></div>
+<div style="margin-top:5px">
+<small>Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</small>
+</div>
+
+
+      
+    </div>
+  
+    <div class="desc desc-js-en" style="display: none;">
+      
+        
+
+
+
+
+<div class="brinza-task-description">
+<p>There are N rectangular buildings standing along the road next to each other. The K-th building is of size H[K] × 1.</p>
+<p>Because a renovation of all of the buildings is planned, we want to cover them with rectangular banners until the renovations are finished. Of course, to cover a building, the banner has to be at least as high as the building. We can cover more than one building with a banner if it is wider than 1.</p>
+<p>For example, to cover buildings of heights 3, 1, 4 we could use a banner of size 4×3 (i.e. of height 4 and width 3), marked here in blue:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/e44e2d9f713b39f75c4705a664a24458.png" alt="Buildings of sizes (3 × 1), (1 × 1), (4 × 1), covered with scaffolding of size 4×3"></p>
+<p>We can order at most two banners and we want to cover all of the buildings. Also, we want to minimize the amount of material needed to produce the banners.</p>
+<p>What is the minimum total area of at most two banners which cover all of the buildings?</p>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>function solution(H);</tt></p></blockquote>
+<p>that, given an array H consisting of N integers, returns the minimum total area of at most two banners that we will have to order.</p>
+<p><b>Examples:</b></p>
+<p>1. Given H = [3, 1, 4], the function should return 10. The result can be achieved by covering the first two buildings with a banner of size 3×2 and the third building with a banner of size 4×1:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/15a3d076fc3d427d4aa6867e63116d39.png" alt="Illustration of first example"></p>
+<p>2. Given H = [5, 3, 2, 4], the function should return 17. The result can be achieved by covering the first building with a banner of size 5×1 and the other buildings with a banner of size 4×3:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/764950b9daed4087b2085b47bee4e473.png" alt="Illustration of second example"></p>
+<p>3. Given H = [5, 3, 5, 2, 1], your function should return 19. The result can be achieved by covering the first three buildings with a banner of size 5×3 and the other two with a banner of size 2×2:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/9410aa7fbd190c305a5757f856276d48.png" alt="Illustration of third example"></p>
+<p>4. Given H = [7, 7, 3, 7, 7], your function should return 35. The result can be achieved by using one banner of size 7×5:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/7ecbcaf2876fadfe435f4c99234bbcba.png" alt="Illustration of fourth example"></p>
+<p>5. Given H = [1, 1, 7, 6, 6, 6], your function should return 30. The result can be achieved by using banners of size 1×2 and 7×4:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/024fc0c5e7c3271a2f440a3c82482c5e.png" alt="Illustration of fifth example"></p>
+<p>Write an <b><b>efficient</b></b> algorithm for the following assumptions:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">1</span>..<span class="number">100,000</span>];</li>
+<li>each element of array H is an integer within the range [<span class="number">1</span>..<span class="number">10,000</span>].</li>
+</ul>
+</blockquote></div>
+<div style="margin-top:5px">
+<small>Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</small>
+</div>
+
+
+      
+    </div>
+  
+    <div class="desc desc-kt-en" style="display: none;">
+      
+        
+
+
+
+
+<div class="brinza-task-description">
+<p>There are N rectangular buildings standing along the road next to each other. The K-th building is of size H[K] × 1.</p>
+<p>Because a renovation of all of the buildings is planned, we want to cover them with rectangular banners until the renovations are finished. Of course, to cover a building, the banner has to be at least as high as the building. We can cover more than one building with a banner if it is wider than 1.</p>
+<p>For example, to cover buildings of heights 3, 1, 4 we could use a banner of size 4×3 (i.e. of height 4 and width 3), marked here in blue:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/e44e2d9f713b39f75c4705a664a24458.png" alt="Buildings of sizes (3 × 1), (1 × 1), (4 × 1), covered with scaffolding of size 4×3"></p>
+<p>We can order at most two banners and we want to cover all of the buildings. Also, we want to minimize the amount of material needed to produce the banners.</p>
+<p>What is the minimum total area of at most two banners which cover all of the buildings?</p>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>fun solution(H: IntArray): Int</tt></p></blockquote>
+<p>that, given an array H consisting of N integers, returns the minimum total area of at most two banners that we will have to order.</p>
+<p><b>Examples:</b></p>
+<p>1. Given H = [3, 1, 4], the function should return 10. The result can be achieved by covering the first two buildings with a banner of size 3×2 and the third building with a banner of size 4×1:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/15a3d076fc3d427d4aa6867e63116d39.png" alt="Illustration of first example"></p>
+<p>2. Given H = [5, 3, 2, 4], the function should return 17. The result can be achieved by covering the first building with a banner of size 5×1 and the other buildings with a banner of size 4×3:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/764950b9daed4087b2085b47bee4e473.png" alt="Illustration of second example"></p>
+<p>3. Given H = [5, 3, 5, 2, 1], your function should return 19. The result can be achieved by covering the first three buildings with a banner of size 5×3 and the other two with a banner of size 2×2:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/9410aa7fbd190c305a5757f856276d48.png" alt="Illustration of third example"></p>
+<p>4. Given H = [7, 7, 3, 7, 7], your function should return 35. The result can be achieved by using one banner of size 7×5:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/7ecbcaf2876fadfe435f4c99234bbcba.png" alt="Illustration of fourth example"></p>
+<p>5. Given H = [1, 1, 7, 6, 6, 6], your function should return 30. The result can be achieved by using banners of size 1×2 and 7×4:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/024fc0c5e7c3271a2f440a3c82482c5e.png" alt="Illustration of fifth example"></p>
+<p>Write an <b><b>efficient</b></b> algorithm for the following assumptions:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">1</span>..<span class="number">100,000</span>];</li>
+<li>each element of array H is an integer within the range [<span class="number">1</span>..<span class="number">10,000</span>].</li>
+</ul>
+</blockquote></div>
+<div style="margin-top:5px">
+<small>Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</small>
+</div>
+
+
+      
+    </div>
+  
+    <div class="desc desc-lua-en" style="display: none;">
+      
+        
+
+
+
+
+<div class="brinza-task-description">
+<p>There are N rectangular buildings standing along the road next to each other. The K-th building is of size H[K] × 1.</p>
+<p>Because a renovation of all of the buildings is planned, we want to cover them with rectangular banners until the renovations are finished. Of course, to cover a building, the banner has to be at least as high as the building. We can cover more than one building with a banner if it is wider than 1.</p>
+<p>For example, to cover buildings of heights 3, 1, 4 we could use a banner of size 4×3 (i.e. of height 4 and width 3), marked here in blue:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/e44e2d9f713b39f75c4705a664a24458.png" alt="Buildings of sizes (3 × 1), (1 × 1), (4 × 1), covered with scaffolding of size 4×3"></p>
+<p>We can order at most two banners and we want to cover all of the buildings. Also, we want to minimize the amount of material needed to produce the banners.</p>
+<p>What is the minimum total area of at most two banners which cover all of the buildings?</p>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>function solution(H)</tt></p></blockquote>
+<p>that, given an array H consisting of N integers, returns the minimum total area of at most two banners that we will have to order.</p>
+<p><b>Examples:</b></p>
+<p>1. Given H = [3, 1, 4], the function should return 10. The result can be achieved by covering the first two buildings with a banner of size 3×2 and the third building with a banner of size 4×1:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/15a3d076fc3d427d4aa6867e63116d39.png" alt="Illustration of first example"></p>
+<p>2. Given H = [5, 3, 2, 4], the function should return 17. The result can be achieved by covering the first building with a banner of size 5×1 and the other buildings with a banner of size 4×3:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/764950b9daed4087b2085b47bee4e473.png" alt="Illustration of second example"></p>
+<p>3. Given H = [5, 3, 5, 2, 1], your function should return 19. The result can be achieved by covering the first three buildings with a banner of size 5×3 and the other two with a banner of size 2×2:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/9410aa7fbd190c305a5757f856276d48.png" alt="Illustration of third example"></p>
+<p>4. Given H = [7, 7, 3, 7, 7], your function should return 35. The result can be achieved by using one banner of size 7×5:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/7ecbcaf2876fadfe435f4c99234bbcba.png" alt="Illustration of fourth example"></p>
+<p>5. Given H = [1, 1, 7, 6, 6, 6], your function should return 30. The result can be achieved by using banners of size 1×2 and 7×4:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/024fc0c5e7c3271a2f440a3c82482c5e.png" alt="Illustration of fifth example"></p>
+<p>Write an <b><b>efficient</b></b> algorithm for the following assumptions:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">1</span>..<span class="number">100,000</span>];</li>
+<li>each element of array H is an integer within the range [<span class="number">1</span>..<span class="number">10,000</span>].</li>
+</ul>
+</blockquote><p>Note: All arrays in this task are zero-indexed, unlike the common Lua convention. You can use <tt style="white-space:pre-wrap">#A</tt> to get the length of the array A.</p>
+</div>
+<div style="margin-top:5px">
+<small>Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</small>
+</div>
+
+
+      
+    </div>
+  
+    <div class="desc desc-m-en" style="display: none;">
+      
+        
+
+
+
+
+<div class="brinza-task-description">
+<p>There are N rectangular buildings standing along the road next to each other. The K-th building is of size H[K] × 1.</p>
+<p>Because a renovation of all of the buildings is planned, we want to cover them with rectangular banners until the renovations are finished. Of course, to cover a building, the banner has to be at least as high as the building. We can cover more than one building with a banner if it is wider than 1.</p>
+<p>For example, to cover buildings of heights 3, 1, 4 we could use a banner of size 4×3 (i.e. of height 4 and width 3), marked here in blue:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/e44e2d9f713b39f75c4705a664a24458.png" alt="Buildings of sizes (3 × 1), (1 × 1), (4 × 1), covered with scaffolding of size 4×3"></p>
+<p>We can order at most two banners and we want to cover all of the buildings. Also, we want to minimize the amount of material needed to produce the banners.</p>
+<p>What is the minimum total area of at most two banners which cover all of the buildings?</p>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>int solution(NSMutableArray *H);</tt></p></blockquote>
+<p>that, given an array H consisting of N integers, returns the minimum total area of at most two banners that we will have to order.</p>
+<p><b>Examples:</b></p>
+<p>1. Given H = [3, 1, 4], the function should return 10. The result can be achieved by covering the first two buildings with a banner of size 3×2 and the third building with a banner of size 4×1:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/15a3d076fc3d427d4aa6867e63116d39.png" alt="Illustration of first example"></p>
+<p>2. Given H = [5, 3, 2, 4], the function should return 17. The result can be achieved by covering the first building with a banner of size 5×1 and the other buildings with a banner of size 4×3:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/764950b9daed4087b2085b47bee4e473.png" alt="Illustration of second example"></p>
+<p>3. Given H = [5, 3, 5, 2, 1], your function should return 19. The result can be achieved by covering the first three buildings with a banner of size 5×3 and the other two with a banner of size 2×2:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/9410aa7fbd190c305a5757f856276d48.png" alt="Illustration of third example"></p>
+<p>4. Given H = [7, 7, 3, 7, 7], your function should return 35. The result can be achieved by using one banner of size 7×5:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/7ecbcaf2876fadfe435f4c99234bbcba.png" alt="Illustration of fourth example"></p>
+<p>5. Given H = [1, 1, 7, 6, 6, 6], your function should return 30. The result can be achieved by using banners of size 1×2 and 7×4:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/024fc0c5e7c3271a2f440a3c82482c5e.png" alt="Illustration of fifth example"></p>
+<p>Write an <b><b>efficient</b></b> algorithm for the following assumptions:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">1</span>..<span class="number">100,000</span>];</li>
+<li>each element of array H is an integer within the range [<span class="number">1</span>..<span class="number">10,000</span>].</li>
+</ul>
+</blockquote></div>
+<div style="margin-top:5px">
+<small>Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</small>
+</div>
+
+
+      
+    </div>
+  
+    <div class="desc desc-pas-en" style="display: none;">
+      
+        
+
+
+
+
+<div class="brinza-task-description">
+<p>There are N rectangular buildings standing along the road next to each other. The K-th building is of size H[K] × 1.</p>
+<p>Because a renovation of all of the buildings is planned, we want to cover them with rectangular banners until the renovations are finished. Of course, to cover a building, the banner has to be at least as high as the building. We can cover more than one building with a banner if it is wider than 1.</p>
+<p>For example, to cover buildings of heights 3, 1, 4 we could use a banner of size 4×3 (i.e. of height 4 and width 3), marked here in blue:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/e44e2d9f713b39f75c4705a664a24458.png" alt="Buildings of sizes (3 × 1), (1 × 1), (4 × 1), covered with scaffolding of size 4×3"></p>
+<p>We can order at most two banners and we want to cover all of the buildings. Also, we want to minimize the amount of material needed to produce the banners.</p>
+<p>What is the minimum total area of at most two banners which cover all of the buildings?</p>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>function solution(H: array of longint; N: longint): longint;</tt></p></blockquote>
+<p>that, given an array H consisting of N integers, returns the minimum total area of at most two banners that we will have to order.</p>
+<p><b>Examples:</b></p>
+<p>1. Given H = [3, 1, 4], the function should return 10. The result can be achieved by covering the first two buildings with a banner of size 3×2 and the third building with a banner of size 4×1:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/15a3d076fc3d427d4aa6867e63116d39.png" alt="Illustration of first example"></p>
+<p>2. Given H = [5, 3, 2, 4], the function should return 17. The result can be achieved by covering the first building with a banner of size 5×1 and the other buildings with a banner of size 4×3:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/764950b9daed4087b2085b47bee4e473.png" alt="Illustration of second example"></p>
+<p>3. Given H = [5, 3, 5, 2, 1], your function should return 19. The result can be achieved by covering the first three buildings with a banner of size 5×3 and the other two with a banner of size 2×2:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/9410aa7fbd190c305a5757f856276d48.png" alt="Illustration of third example"></p>
+<p>4. Given H = [7, 7, 3, 7, 7], your function should return 35. The result can be achieved by using one banner of size 7×5:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/7ecbcaf2876fadfe435f4c99234bbcba.png" alt="Illustration of fourth example"></p>
+<p>5. Given H = [1, 1, 7, 6, 6, 6], your function should return 30. The result can be achieved by using banners of size 1×2 and 7×4:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/024fc0c5e7c3271a2f440a3c82482c5e.png" alt="Illustration of fifth example"></p>
+<p>Write an <b><b>efficient</b></b> algorithm for the following assumptions:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">1</span>..<span class="number">100,000</span>];</li>
+<li>each element of array H is an integer within the range [<span class="number">1</span>..<span class="number">10,000</span>].</li>
+</ul>
+</blockquote></div>
+<div style="margin-top:5px">
+<small>Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</small>
+</div>
+
+
+      
+    </div>
+  
+    <div class="desc desc-php-en" style="display: none;">
+      
+        
+
+
+
+
+<div class="brinza-task-description">
+<p>There are N rectangular buildings standing along the road next to each other. The K-th building is of size H[K] × 1.</p>
+<p>Because a renovation of all of the buildings is planned, we want to cover them with rectangular banners until the renovations are finished. Of course, to cover a building, the banner has to be at least as high as the building. We can cover more than one building with a banner if it is wider than 1.</p>
+<p>For example, to cover buildings of heights 3, 1, 4 we could use a banner of size 4×3 (i.e. of height 4 and width 3), marked here in blue:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/e44e2d9f713b39f75c4705a664a24458.png" alt="Buildings of sizes (3 × 1), (1 × 1), (4 × 1), covered with scaffolding of size 4×3"></p>
+<p>We can order at most two banners and we want to cover all of the buildings. Also, we want to minimize the amount of material needed to produce the banners.</p>
+<p>What is the minimum total area of at most two banners which cover all of the buildings?</p>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>function solution($H);</tt></p></blockquote>
+<p>that, given an array H consisting of N integers, returns the minimum total area of at most two banners that we will have to order.</p>
+<p><b>Examples:</b></p>
+<p>1. Given H = [3, 1, 4], the function should return 10. The result can be achieved by covering the first two buildings with a banner of size 3×2 and the third building with a banner of size 4×1:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/15a3d076fc3d427d4aa6867e63116d39.png" alt="Illustration of first example"></p>
+<p>2. Given H = [5, 3, 2, 4], the function should return 17. The result can be achieved by covering the first building with a banner of size 5×1 and the other buildings with a banner of size 4×3:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/764950b9daed4087b2085b47bee4e473.png" alt="Illustration of second example"></p>
+<p>3. Given H = [5, 3, 5, 2, 1], your function should return 19. The result can be achieved by covering the first three buildings with a banner of size 5×3 and the other two with a banner of size 2×2:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/9410aa7fbd190c305a5757f856276d48.png" alt="Illustration of third example"></p>
+<p>4. Given H = [7, 7, 3, 7, 7], your function should return 35. The result can be achieved by using one banner of size 7×5:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/7ecbcaf2876fadfe435f4c99234bbcba.png" alt="Illustration of fourth example"></p>
+<p>5. Given H = [1, 1, 7, 6, 6, 6], your function should return 30. The result can be achieved by using banners of size 1×2 and 7×4:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/024fc0c5e7c3271a2f440a3c82482c5e.png" alt="Illustration of fifth example"></p>
+<p>Write an <b><b>efficient</b></b> algorithm for the following assumptions:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">1</span>..<span class="number">100,000</span>];</li>
+<li>each element of array H is an integer within the range [<span class="number">1</span>..<span class="number">10,000</span>].</li>
+</ul>
+</blockquote></div>
+<div style="margin-top:5px">
+<small>Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</small>
+</div>
+
+
+      
+    </div>
+  
+    <div class="desc desc-pl-en" style="display: none;">
+      
+        
+
+
+
+
+<div class="brinza-task-description">
+<p>There are N rectangular buildings standing along the road next to each other. The K-th building is of size H[K] × 1.</p>
+<p>Because a renovation of all of the buildings is planned, we want to cover them with rectangular banners until the renovations are finished. Of course, to cover a building, the banner has to be at least as high as the building. We can cover more than one building with a banner if it is wider than 1.</p>
+<p>For example, to cover buildings of heights 3, 1, 4 we could use a banner of size 4×3 (i.e. of height 4 and width 3), marked here in blue:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/e44e2d9f713b39f75c4705a664a24458.png" alt="Buildings of sizes (3 × 1), (1 × 1), (4 × 1), covered with scaffolding of size 4×3"></p>
+<p>We can order at most two banners and we want to cover all of the buildings. Also, we want to minimize the amount of material needed to produce the banners.</p>
+<p>What is the minimum total area of at most two banners which cover all of the buildings?</p>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>sub solution { my (@H)=@_; ... }</tt></p></blockquote>
+<p>that, given an array H consisting of N integers, returns the minimum total area of at most two banners that we will have to order.</p>
+<p><b>Examples:</b></p>
+<p>1. Given H = [3, 1, 4], the function should return 10. The result can be achieved by covering the first two buildings with a banner of size 3×2 and the third building with a banner of size 4×1:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/15a3d076fc3d427d4aa6867e63116d39.png" alt="Illustration of first example"></p>
+<p>2. Given H = [5, 3, 2, 4], the function should return 17. The result can be achieved by covering the first building with a banner of size 5×1 and the other buildings with a banner of size 4×3:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/764950b9daed4087b2085b47bee4e473.png" alt="Illustration of second example"></p>
+<p>3. Given H = [5, 3, 5, 2, 1], your function should return 19. The result can be achieved by covering the first three buildings with a banner of size 5×3 and the other two with a banner of size 2×2:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/9410aa7fbd190c305a5757f856276d48.png" alt="Illustration of third example"></p>
+<p>4. Given H = [7, 7, 3, 7, 7], your function should return 35. The result can be achieved by using one banner of size 7×5:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/7ecbcaf2876fadfe435f4c99234bbcba.png" alt="Illustration of fourth example"></p>
+<p>5. Given H = [1, 1, 7, 6, 6, 6], your function should return 30. The result can be achieved by using banners of size 1×2 and 7×4:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/024fc0c5e7c3271a2f440a3c82482c5e.png" alt="Illustration of fifth example"></p>
+<p>Write an <b><b>efficient</b></b> algorithm for the following assumptions:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">1</span>..<span class="number">100,000</span>];</li>
+<li>each element of array H is an integer within the range [<span class="number">1</span>..<span class="number">10,000</span>].</li>
+</ul>
+</blockquote></div>
+<div style="margin-top:5px">
+<small>Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</small>
+</div>
+
+
+      
+    </div>
+  
+    <div class="desc desc-py-en" style="display: none;">
+      
+        
+
+
+
+
+<div class="brinza-task-description">
+<p>There are N rectangular buildings standing along the road next to each other. The K-th building is of size H[K] × 1.</p>
+<p>Because a renovation of all of the buildings is planned, we want to cover them with rectangular banners until the renovations are finished. Of course, to cover a building, the banner has to be at least as high as the building. We can cover more than one building with a banner if it is wider than 1.</p>
+<p>For example, to cover buildings of heights 3, 1, 4 we could use a banner of size 4×3 (i.e. of height 4 and width 3), marked here in blue:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/e44e2d9f713b39f75c4705a664a24458.png" alt="Buildings of sizes (3 × 1), (1 × 1), (4 × 1), covered with scaffolding of size 4×3"></p>
+<p>We can order at most two banners and we want to cover all of the buildings. Also, we want to minimize the amount of material needed to produce the banners.</p>
+<p>What is the minimum total area of at most two banners which cover all of the buildings?</p>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>def solution(H)</tt></p></blockquote>
+<p>that, given an array H consisting of N integers, returns the minimum total area of at most two banners that we will have to order.</p>
+<p><b>Examples:</b></p>
+<p>1. Given H = [3, 1, 4], the function should return 10. The result can be achieved by covering the first two buildings with a banner of size 3×2 and the third building with a banner of size 4×1:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/15a3d076fc3d427d4aa6867e63116d39.png" alt="Illustration of first example"></p>
+<p>2. Given H = [5, 3, 2, 4], the function should return 17. The result can be achieved by covering the first building with a banner of size 5×1 and the other buildings with a banner of size 4×3:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/764950b9daed4087b2085b47bee4e473.png" alt="Illustration of second example"></p>
+<p>3. Given H = [5, 3, 5, 2, 1], your function should return 19. The result can be achieved by covering the first three buildings with a banner of size 5×3 and the other two with a banner of size 2×2:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/9410aa7fbd190c305a5757f856276d48.png" alt="Illustration of third example"></p>
+<p>4. Given H = [7, 7, 3, 7, 7], your function should return 35. The result can be achieved by using one banner of size 7×5:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/7ecbcaf2876fadfe435f4c99234bbcba.png" alt="Illustration of fourth example"></p>
+<p>5. Given H = [1, 1, 7, 6, 6, 6], your function should return 30. The result can be achieved by using banners of size 1×2 and 7×4:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/024fc0c5e7c3271a2f440a3c82482c5e.png" alt="Illustration of fifth example"></p>
+<p>Write an <b><b>efficient</b></b> algorithm for the following assumptions:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">1</span>..<span class="number">100,000</span>];</li>
+<li>each element of array H is an integer within the range [<span class="number">1</span>..<span class="number">10,000</span>].</li>
+</ul>
+</blockquote></div>
+<div style="margin-top:5px">
+<small>Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</small>
+</div>
+
+
+      
+    </div>
+  
+    <div class="desc desc-rb-en" style="display: none;">
+      
+        
+
+
+
+
+<div class="brinza-task-description">
+<p>There are N rectangular buildings standing along the road next to each other. The K-th building is of size H[K] × 1.</p>
+<p>Because a renovation of all of the buildings is planned, we want to cover them with rectangular banners until the renovations are finished. Of course, to cover a building, the banner has to be at least as high as the building. We can cover more than one building with a banner if it is wider than 1.</p>
+<p>For example, to cover buildings of heights 3, 1, 4 we could use a banner of size 4×3 (i.e. of height 4 and width 3), marked here in blue:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/e44e2d9f713b39f75c4705a664a24458.png" alt="Buildings of sizes (3 × 1), (1 × 1), (4 × 1), covered with scaffolding of size 4×3"></p>
+<p>We can order at most two banners and we want to cover all of the buildings. Also, we want to minimize the amount of material needed to produce the banners.</p>
+<p>What is the minimum total area of at most two banners which cover all of the buildings?</p>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>def solution(h)</tt></p></blockquote>
+<p>that, given an array H consisting of N integers, returns the minimum total area of at most two banners that we will have to order.</p>
+<p><b>Examples:</b></p>
+<p>1. Given H = [3, 1, 4], the function should return 10. The result can be achieved by covering the first two buildings with a banner of size 3×2 and the third building with a banner of size 4×1:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/15a3d076fc3d427d4aa6867e63116d39.png" alt="Illustration of first example"></p>
+<p>2. Given H = [5, 3, 2, 4], the function should return 17. The result can be achieved by covering the first building with a banner of size 5×1 and the other buildings with a banner of size 4×3:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/764950b9daed4087b2085b47bee4e473.png" alt="Illustration of second example"></p>
+<p>3. Given H = [5, 3, 5, 2, 1], your function should return 19. The result can be achieved by covering the first three buildings with a banner of size 5×3 and the other two with a banner of size 2×2:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/9410aa7fbd190c305a5757f856276d48.png" alt="Illustration of third example"></p>
+<p>4. Given H = [7, 7, 3, 7, 7], your function should return 35. The result can be achieved by using one banner of size 7×5:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/7ecbcaf2876fadfe435f4c99234bbcba.png" alt="Illustration of fourth example"></p>
+<p>5. Given H = [1, 1, 7, 6, 6, 6], your function should return 30. The result can be achieved by using banners of size 1×2 and 7×4:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/024fc0c5e7c3271a2f440a3c82482c5e.png" alt="Illustration of fifth example"></p>
+<p>Write an <b><b>efficient</b></b> algorithm for the following assumptions:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">1</span>..<span class="number">100,000</span>];</li>
+<li>each element of array H is an integer within the range [<span class="number">1</span>..<span class="number">10,000</span>].</li>
+</ul>
+</blockquote></div>
+<div style="margin-top:5px">
+<small>Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</small>
+</div>
+
+
+      
+    </div>
+  
+    <div class="desc desc-scala-en" style="display: none;">
+      
+        
+
+
+
+
+<div class="brinza-task-description">
+<p>There are N rectangular buildings standing along the road next to each other. The K-th building is of size H[K] × 1.</p>
+<p>Because a renovation of all of the buildings is planned, we want to cover them with rectangular banners until the renovations are finished. Of course, to cover a building, the banner has to be at least as high as the building. We can cover more than one building with a banner if it is wider than 1.</p>
+<p>For example, to cover buildings of heights 3, 1, 4 we could use a banner of size 4×3 (i.e. of height 4 and width 3), marked here in blue:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/e44e2d9f713b39f75c4705a664a24458.png" alt="Buildings of sizes (3 × 1), (1 × 1), (4 × 1), covered with scaffolding of size 4×3"></p>
+<p>We can order at most two banners and we want to cover all of the buildings. Also, we want to minimize the amount of material needed to produce the banners.</p>
+<p>What is the minimum total area of at most two banners which cover all of the buildings?</p>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>object Solution { def solution(h: Array[Int]): Int }</tt></p></blockquote>
+<p>that, given an array H consisting of N integers, returns the minimum total area of at most two banners that we will have to order.</p>
+<p><b>Examples:</b></p>
+<p>1. Given H = [3, 1, 4], the function should return 10. The result can be achieved by covering the first two buildings with a banner of size 3×2 and the third building with a banner of size 4×1:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/15a3d076fc3d427d4aa6867e63116d39.png" alt="Illustration of first example"></p>
+<p>2. Given H = [5, 3, 2, 4], the function should return 17. The result can be achieved by covering the first building with a banner of size 5×1 and the other buildings with a banner of size 4×3:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/764950b9daed4087b2085b47bee4e473.png" alt="Illustration of second example"></p>
+<p>3. Given H = [5, 3, 5, 2, 1], your function should return 19. The result can be achieved by covering the first three buildings with a banner of size 5×3 and the other two with a banner of size 2×2:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/9410aa7fbd190c305a5757f856276d48.png" alt="Illustration of third example"></p>
+<p>4. Given H = [7, 7, 3, 7, 7], your function should return 35. The result can be achieved by using one banner of size 7×5:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/7ecbcaf2876fadfe435f4c99234bbcba.png" alt="Illustration of fourth example"></p>
+<p>5. Given H = [1, 1, 7, 6, 6, 6], your function should return 30. The result can be achieved by using banners of size 1×2 and 7×4:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/024fc0c5e7c3271a2f440a3c82482c5e.png" alt="Illustration of fifth example"></p>
+<p>Write an <b><b>efficient</b></b> algorithm for the following assumptions:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">1</span>..<span class="number">100,000</span>];</li>
+<li>each element of array H is an integer within the range [<span class="number">1</span>..<span class="number">10,000</span>].</li>
+</ul>
+</blockquote></div>
+<div style="margin-top:5px">
+<small>Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</small>
+</div>
+
+
+      
+    </div>
+  
+    <div class="desc desc-swift4-en" style="display: none;">
+      
+        
+
+
+
+
+<div class="brinza-task-description">
+<p>There are N rectangular buildings standing along the road next to each other. The K-th building is of size H[K] × 1.</p>
+<p>Because a renovation of all of the buildings is planned, we want to cover them with rectangular banners until the renovations are finished. Of course, to cover a building, the banner has to be at least as high as the building. We can cover more than one building with a banner if it is wider than 1.</p>
+<p>For example, to cover buildings of heights 3, 1, 4 we could use a banner of size 4×3 (i.e. of height 4 and width 3), marked here in blue:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/e44e2d9f713b39f75c4705a664a24458.png" alt="Buildings of sizes (3 × 1), (1 × 1), (4 × 1), covered with scaffolding of size 4×3"></p>
+<p>We can order at most two banners and we want to cover all of the buildings. Also, we want to minimize the amount of material needed to produce the banners.</p>
+<p>What is the minimum total area of at most two banners which cover all of the buildings?</p>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>public func solution(_ H : inout [Int]) -&gt; Int</tt></p></blockquote>
+<p>that, given an array H consisting of N integers, returns the minimum total area of at most two banners that we will have to order.</p>
+<p><b>Examples:</b></p>
+<p>1. Given H = [3, 1, 4], the function should return 10. The result can be achieved by covering the first two buildings with a banner of size 3×2 and the third building with a banner of size 4×1:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/15a3d076fc3d427d4aa6867e63116d39.png" alt="Illustration of first example"></p>
+<p>2. Given H = [5, 3, 2, 4], the function should return 17. The result can be achieved by covering the first building with a banner of size 5×1 and the other buildings with a banner of size 4×3:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/764950b9daed4087b2085b47bee4e473.png" alt="Illustration of second example"></p>
+<p>3. Given H = [5, 3, 5, 2, 1], your function should return 19. The result can be achieved by covering the first three buildings with a banner of size 5×3 and the other two with a banner of size 2×2:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/9410aa7fbd190c305a5757f856276d48.png" alt="Illustration of third example"></p>
+<p>4. Given H = [7, 7, 3, 7, 7], your function should return 35. The result can be achieved by using one banner of size 7×5:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/7ecbcaf2876fadfe435f4c99234bbcba.png" alt="Illustration of fourth example"></p>
+<p>5. Given H = [1, 1, 7, 6, 6, 6], your function should return 30. The result can be achieved by using banners of size 1×2 and 7×4:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/024fc0c5e7c3271a2f440a3c82482c5e.png" alt="Illustration of fifth example"></p>
+<p>Write an <b><b>efficient</b></b> algorithm for the following assumptions:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">1</span>..<span class="number">100,000</span>];</li>
+<li>each element of array H is an integer within the range [<span class="number">1</span>..<span class="number">10,000</span>].</li>
+</ul>
+</blockquote></div>
+<div style="margin-top:5px">
+<small>Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</small>
+</div>
+
+
+      
+    </div>
+  
+    <div class="desc desc-vb-en" style="display: none;">
+      
+        
+
+
+
+
+<div class="brinza-task-description">
+<p>There are N rectangular buildings standing along the road next to each other. The K-th building is of size H[K] × 1.</p>
+<p>Because a renovation of all of the buildings is planned, we want to cover them with rectangular banners until the renovations are finished. Of course, to cover a building, the banner has to be at least as high as the building. We can cover more than one building with a banner if it is wider than 1.</p>
+<p>For example, to cover buildings of heights 3, 1, 4 we could use a banner of size 4×3 (i.e. of height 4 and width 3), marked here in blue:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/e44e2d9f713b39f75c4705a664a24458.png" alt="Buildings of sizes (3 × 1), (1 × 1), (4 × 1), covered with scaffolding of size 4×3"></p>
+<p>We can order at most two banners and we want to cover all of the buildings. Also, we want to minimize the amount of material needed to produce the banners.</p>
+<p>What is the minimum total area of at most two banners which cover all of the buildings?</p>
+<p>Write a function:</p>
+<blockquote><p style="font-family: monospace; font-size: 9pt; display: block; white-space: pre-wrap"><tt>Private Function solution(H As Integer()) As Integer</tt></p></blockquote>
+<p>that, given an array H consisting of N integers, returns the minimum total area of at most two banners that we will have to order.</p>
+<p><b>Examples:</b></p>
+<p>1. Given H = [3, 1, 4], the function should return 10. The result can be achieved by covering the first two buildings with a banner of size 3×2 and the third building with a banner of size 4×1:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/15a3d076fc3d427d4aa6867e63116d39.png" alt="Illustration of first example"></p>
+<p>2. Given H = [5, 3, 2, 4], the function should return 17. The result can be achieved by covering the first building with a banner of size 5×1 and the other buildings with a banner of size 4×3:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/764950b9daed4087b2085b47bee4e473.png" alt="Illustration of second example"></p>
+<p>3. Given H = [5, 3, 5, 2, 1], your function should return 19. The result can be achieved by covering the first three buildings with a banner of size 5×3 and the other two with a banner of size 2×2:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/9410aa7fbd190c305a5757f856276d48.png" alt="Illustration of third example"></p>
+<p>4. Given H = [7, 7, 3, 7, 7], your function should return 35. The result can be achieved by using one banner of size 7×5:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/7ecbcaf2876fadfe435f4c99234bbcba.png" alt="Illustration of fourth example"></p>
+<p>5. Given H = [1, 1, 7, 6, 6, 6], your function should return 30. The result can be achieved by using banners of size 1×2 and 7×4:</p>
+<p><img class="inline-description-image" src="./CoverBuildings coding task - Learn to Code - Codility_files/024fc0c5e7c3271a2f440a3c82482c5e.png" alt="Illustration of fifth example"></p>
+<p>Write an <b><b>efficient</b></b> algorithm for the following assumptions:</p>
+<blockquote><ul style="margin: 10px;padding: 0px;"><li>N is an integer within the range [<span class="number">1</span>..<span class="number">100,000</span>];</li>
+<li>each element of array H is an integer within the range [<span class="number">1</span>..<span class="number">10,000</span>].</li>
+</ul>
+</blockquote></div>
+<div style="margin-top:5px">
+<small>Copyright 2009–2020 by Codility Limited. All Rights Reserved. Unauthorized copying, publication or disclosure prohibited.</small>
+</div>
+
+
+      
+    </div>
+  
+</div> 
+
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+  </div>
+
+  <div class="flex-rigid">
+    
+
+
+
+<div id="footer" class="programmers-home"><div class="first-section"><div class="menu"><h4>For programmers</h4><div class="cols"><a href="https://app.codility.com/programmers/lessons/">Lessons</a><a href="https://app.codility.com/programmers/challenges/">Challenges</a><a href="https://app.codility.com/terms-of-service-for-programmers/">Terms</a><a href="https://app.codility.com/candidate-faq/">FAQ</a><a href="https://www.codility.com/data-privacy-notice/">Privacy</a></div></div><div class="newsletter js-newsletter" data-subscribe-url="/subscribe/" data-type="programmers"><h4>Sign up for our newsletter:</h4><p>Information about upcoming challenges, solutions and lessons directly in your inbox.</p><form class="signup" name="newsletter_form"><input type="email" placeholder="Your email"><input type="button" value="Sign up" disabled=""><div class="js-msg"></div></form><div class="social"><h4>Social:</h4><div class="social-icons"><a href="https://www.facebook.com/Codility/"><img src="./CoverBuildings coding task - Learn to Code - Codility_files/facebook.png" alt=""></a><a href="https://twitter.com/Codility"><img src="./CoverBuildings coding task - Learn to Code - Codility_files/twitter.png" alt=""></a><a href="https://www.linkedin.com/company/codility"><img src="./CoverBuildings coding task - Learn to Code - Codility_files/linkedin.png" alt=""></a></div></div></div><div class="contact"><h4>Contact us:</h4><div class="section"><p>For customer support queries:</p><p><a href="tel:+442089707868">UK +44 (208) 970 78 68</a></p><p><a href="tel:14154668085">US 1-415-466-8085</a></p><p><a href="mailto:support@codility.com">support@codility.com</a></p></div><div class="section"><p>For sales queries:</p><p><a href="tel:+442089707868">UK +44 (208) 970 78 68</a></p><p><a href="tel:14154668085">US 1-415-466-8085</a></p><p><a href="mailto:sales@codility.com">sales@codility.com</a></p></div></div></div><div class="last-section"><div id="copyright">© 2009–2020 Codility Ltd., registered in England and Wales (No. 7048726). VAT ID GB981191408. Registered office: 107 Cheapside, London EC2V 6DN</div></div></div>
+
+  </div>
+
+  
+
+<iframe name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame" src="./CoverBuildings coding task - Learn to Code - Codility_files/box-469cf41adb11dc78be68c1ae7f9457a4.html" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe><script>mendeleyWebImporter = { open: function () { window.postMessage('0.2402755408750954', 'https://app.codility.com') } }</script><div></div><iframe scrolling="no" frameborder="0" allowtransparency="true" src="./CoverBuildings coding task - Learn to Code - Codility_files/widget_iframe.96fd96193cc66c3e11d4c5e4c7c7ec97.html" title="Twitter settings iframe" style="display: none;"></iframe><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./CoverBuildings coding task - Learn to Code - Codility_files/saved_resource.html"></iframe></body></html>

@@ -1,0 +1,99 @@
+/*******************************
+
+Semantic-UI integration of Material icons
+
+*******************************/
+
+i.icon {
+  font-family: 'Material Icons';
+}
+
+i[class*='top aligned'].icon {
+  vertical-align: top;
+}
+
+/* Standard Icons */
+i.icon.invite:before               { content: "\e7fe"; }
+i.icon.task:before                 { content: "\e85d"; }
+i.icon.edit:before                 { content: "\e254"; }
+i.icon.time:before                 { content: "\e192"; }
+i.icon.clock:before                { content: "\e924"; }
+i.icon.right.arrow:before          { content: "\e5c8"; }
+i.icon.up.arrow:before             { content: "\e5d8"; }
+i.icon.down.arrow:before           { content: "\e5db"; }
+i.icon.left.arrow:before           { content: "\e5c4"; }
+i.icon.back.arrow:before           { content: "\e317"; }
+i.icon.help:before                 { content: "\e887"; }
+i.icon.close:before                { content: "\e5cd"; }
+i.icon.previous:before             { content: "\e314"; }
+i.icon.next:before                 { content: "\e315"; }
+i.icon.last:before                 { content: "\e5dd"; }
+i.icon.first:before                { content: "\e5dc"; }
+i.icon.pdf:before                  { content: "\e415"; }
+i.icon.note:before                 { content: "\e24d"; }
+i.icon.delete-forever:before       { content: "\e92b"; }
+i.icon.delete:before               { content: "\e872"; }
+i.icon.export:before               { content: "\e2c6"; }
+i.icon.cancel:before               { content: "\e5c9"; }
+i.icon.copy:before                 { content: "\e14d"; }
+i.icon.archive:before              { content: "\e149"; }
+i.icon.unarchive:before            { content: "\e169"; }
+i.icon.send:before                 { content: "\e163"; }
+i.icon.search:before               { content: "\e8b6"; }
+i.icon.warning:before              { content: "\e002"; }
+i.icon.expand:before               { content: "\e5cf"; }
+i.icon.collapse:before             { content: "\e5ce"; }
+i.icon.message:before              { content: "\e0be"; }
+i.icon.reopen:before               { content: "\e8ba"; }
+i.icon.share:before                { content: "\e80d"; }
+i.icon.link:before                 { content: "\e157"; }
+i.icon.announcement:before         { content: "\e85a"; }
+i.icon.add:before                  { content: "\e145"; }
+i.icon.add_circle:before           { content: "\e147"; }
+i.icon.drive_eta:before            { content: "\e613"; }
+i.icon.power_setting:before        { content: "\e8ac"; }
+i.icon.exit:before                 { content: "\e879"; }
+i.icon.report:before               { content: "\e24b"; }
+i.icon.user:before                 { content: "\e853"; }
+i.icon.info:before                 { content: "\e88e"; }
+i.icon.check:before                { content: "\e5ca"; }
+i.icon.check-circle:before         { content: "\e86c"; }
+i.icon.menu:before                 { content: "\e5d2"; }
+i.icon.person:before               { content: "\e7fd"; }
+i.icon.account_circle:before       { content: "\e853"; }
+i.icon.world:before                { content: "\e80b"; }
+i.icon.chart:before                { content: "\e24b"; }
+i.icon.chat:before                 { content: "\e0b7"; }
+i.icon.dropdown:before             { content: "\e5c5"; }
+i.icon.dropup:before               { content: "\e5c7"; }
+i.icon.business_center:before      { content: "\eb3f"; }
+i.icon.location_on:before          { content: "\e0c8"; }
+i.icon.lock:before                 { content: "\e897"; }
+i.icon.recruiter:before            { content: "\eb3f"; }
+i.icon.coder:before                { content: "\e80c"; }
+i.icon.file_download:before        { content: "\e2C4"; }
+i.icon.remove_red_eye:before       { content: "\e417"; }
+
+/* Task type icons */
+i.icon.coding:before               { content: "\e8be"; }
+i.icon.algo:before                 { content: "\e90f"; }
+i.icon.bugfixing:before            { content: "\e868"; }
+i.icon.essay:before                { content: "\e8d2"; }
+i.icon.upload:before               { content: "\e226"; }
+i.icon.mcq:before                  { content: "\e862"; }
+i.icon.design:before               { content: "\e3b8"; }
+i.icon.web:before                  { content: "\e894"; }
+i.icon.variant:before              { content: "\e0d7"; }
+
+/* Backoffice only icons */
+i.icon.settings:before             { content: "\e8b8"; }
+i.icon.group:before                { content: "\e7ef"; }
+i.icon.card:before                 { content: "\e870"; }
+i.icon.star:before                 { content: "\e838"; }
+i.icon.chart:before                { content: "\e6e1"; }
+i.icon.suitcase:before             { content: "\e8f9"; }
+
+
+/* SVG icons */
+i.icon.svg.google:before           { content: url("../img/icons/google.svg"); }
+i.icon.svg.linkedin:before         { content: url("../img/icons/linkedin.svg"); }
