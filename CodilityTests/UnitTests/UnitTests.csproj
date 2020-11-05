@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="CoverBuildings\CoverBuildingsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SmallesPositiveInteger\SmallestPositiveInteger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

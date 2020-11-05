@@ -43,10 +43,12 @@
   <ItemGroup>
     <Compile Include="CoverBuildings\CoverBuildingsClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SmallestPositiveInteger\SmallestPositiveIntegerClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CoverBuildings\CoverBuildings coding task - Learn to Code - Codility.html" />
     <Content Include="CoverBuildings\Test results - Codility cover blocks.html" />
+    <Content Include="SmallestPositiveInteger\SmallestPositiveInteger - Description.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
