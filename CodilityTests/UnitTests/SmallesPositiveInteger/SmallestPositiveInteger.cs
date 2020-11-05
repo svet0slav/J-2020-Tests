@@ -7,6 +7,18 @@ namespace UnitTests
     [TestClass]
     public class SmallestPositiveInteger
     {
+        private int[] dataMillion = new int[1000000];
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            var rnd = new Random();
+            for (int i = 0; i < 1000000; i++)
+            {
+                dataMillion[i] = rnd.Next(100000);
+            }
+        }
+
         [TestMethod]
         public void CoverBuildingsTests_Test1()
         {
@@ -15,8 +27,8 @@ namespace UnitTests
             var result = test.Solution1(data1);
             Assert.AreEqual(5, result, "Example 1 [1, 3, 6, 4, 1, 2] failed with solution 1");
 
-            //result = test.Solution2(data1);
-            //Assert.AreEqual(5, result, "Example 1 [1, 3, 6, 4, 1, 2] failed with solution 2");
+            result = test.Solution2(data1);
+            Assert.AreEqual(5, result, "Example 1 [1, 3, 6, 4, 1, 2] failed with solution 2");
         }
 
         [TestMethod]
@@ -27,8 +39,8 @@ namespace UnitTests
             var result = test.Solution1(data1);
             Assert.AreEqual(4, result, "Example 1 [1, 2, 3] failed with solution 1");
 
-            //result = test.Solution2(data1);
-            //Assert.AreEqual(4, result, "Example 1 [1, 2, 3] failed with solution 2");
+            result = test.Solution2(data1);
+            Assert.AreEqual(4, result, "Example 1 [1, 2, 3] failed with solution 2");
         }
 
         [TestMethod]
@@ -39,8 +51,8 @@ namespace UnitTests
             var result = test.Solution1(data1);
             Assert.AreEqual(1, result, "Example 1 [−1, −3] failed with solution 1");
 
-            //result = test.Solution2(data1);
-            //Assert.AreEqual(5, result, "Example 1 [-1, -3] failed with solution 2");
+            result = test.Solution2(data1);
+            Assert.AreEqual(1, result, "Example 1 [-1, -3] failed with solution 2");
         }
 
         [TestMethod]
@@ -58,21 +70,42 @@ namespace UnitTests
             var result = test.Solution1(data1);
             var lasts = DateTime.Now.Subtract(start).TotalMilliseconds;
             Assert.IsTrue(lasts < 1000, "Example 100,000 - more than 1 seconds. Failed with solution 1.");
+
+            var start2 = DateTime.Now;
+            var test2 = new SmallestPositiveIntegerClass();
+            var result2 = test2.Solution2(data1);
+            var lasts2 = DateTime.Now.Subtract(start2).TotalMilliseconds;
+            Assert.IsTrue(lasts2 < 1000, "Example 100,000 - more than 1 seconds. Failed with solution 2.");
         }
 
         [TestMethod]
         public void CoverBuildingsTests_Test5()
         {
             int[] data1 = new int[1000000];
-            var rnd = new Random();
             for (int i = 0; i < 1000000; i++)
             {
-                data1[i] = rnd.Next(100000);
+                data1[i] = dataMillion[i];
             }
 
             var start = DateTime.Now;
             var test = new SmallestPositiveIntegerClass();
             var result = test.Solution1(data1);
+            var lasts = DateTime.Now.Subtract(start).TotalMilliseconds;
+            Assert.IsTrue(lasts < 6000, "Example 1,000,000 - more than 6 seconds. Failed with solution 1.");
+        }
+
+        [TestMethod]
+        public void CoverBuildingsTests_Test5_2()
+        {
+            int[] data1 = new int[1000000];
+            for (int i = 0; i < 1000000; i++)
+            {
+                data1[i] = dataMillion[i];
+            }
+
+            var start = DateTime.Now;
+            var test = new SmallestPositiveIntegerClass();
+            var result = test.Solution2(data1);
             var lasts = DateTime.Now.Subtract(start).TotalMilliseconds;
             Assert.IsTrue(lasts < 6000, "Example 1,000,000 - more than 6 seconds. Failed with solution 1.");
         }

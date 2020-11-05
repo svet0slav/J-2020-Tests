@@ -38,5 +38,37 @@ namespace CodilityTests.SmallestPositiveInteger
             }
             return seq;
         }
+
+        public int Solution2(int[] A)
+        {
+            int result = 1;
+            int N = A.Length;
+            int minIndex = 0;
+            Boolean used = true;
+            int i;
+            int c;
+            while (used)
+            {
+                used = false;
+                while (minIndex < N && ( A[minIndex] < result ))
+                {
+                    minIndex++;
+                }
+
+                for (i = minIndex; i < N; i++)
+                {
+                    if (result == A[i])
+                    {
+                        result++;
+                        c = A[i];
+                        A[i] = A[minIndex];
+                        A[minIndex] = c;
+                        minIndex++;
+                        used = true;
+                    }
+                }
+            }
+            return result;
+        }
     }
 }
