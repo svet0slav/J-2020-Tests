@@ -1,0 +1,44 @@
+﻿A way out
+
+Problem
+You are working with a client who owns an escape room.
+The room consists of a locked door, different objects to manipulate as well as hidden clues or secret compartments.
+The task is to get out of the room.
+The exit is through a door which is opened with a combination 
+	of the following symbols “{“,”}”,”(“,”)”,”[“,”]”.
+As the game progresses you discover symbols one by one 
+and if you are playing correctly the door will open at the end of the game. 
+Your task is to program the door to open only when the right combination of symbols is entered.
+
+An input combination is valid if:
+
+-Open brackets must be closed by the same type of brackets.
+
+-Open brackets must be closed in the correct order.
+
+For example, the program should print true “[()]{}{()()}” and false for “[(])”
+
+Input Format
+
+The first line contains the expression as a string.
+
+Constraints
+
+1 ≤ |s| ≤ 112
+
+Output Format
+
+true or false
+
+Sample Input 0
+
+{([])}
+Sample Output 0
+
+true
+Sample Input 1
+
+([]
+Sample Output 1
+
+false

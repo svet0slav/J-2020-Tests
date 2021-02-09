@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestsLongestSubstring.cs" />
     <Compile Include="TestsMergeClasses.cs" />
+    <Compile Include="TestAwayOut.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
