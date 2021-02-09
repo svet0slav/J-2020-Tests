@@ -41,11 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AP\IStringMap.cs" />
+    <Compile Include="AP\Task3StringMap.cs" />
+    <Compile Include="AP\Task2JimmyTreesAesthetic.cs" />
     <Compile Include="CoverBuildings\CoverBuildingsClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SmallestPositiveInteger\SmallestPositiveIntegerClass.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AP\Result-1.png" />
+    <Content Include="AP\Task1-Solution.sql" />
+    <Content Include="AP\Task1.png" />
+    <Content Include="AP\Task2-2.png" />
+    <Content Include="AP\Task2.png" />
+    <Content Include="AP\Task3.png" />
     <Content Include="CoverBuildings\CoverBuildings coding task - Learn to Code - Codility.html" />
     <Content Include="CoverBuildings\Test results - Codility cover blocks.html" />
     <Content Include="SmallestPositiveInteger\SmallestPositiveInteger - Description.txt" />
