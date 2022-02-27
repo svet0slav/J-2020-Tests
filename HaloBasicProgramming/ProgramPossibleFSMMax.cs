@@ -35,7 +35,7 @@ namespace HaloBasicTests
             return count;
         }
 
-        static void Main(string[] args)
+        static void MainPossibleFSMMax(string[] args)
         {
             //TextWriter tw = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
 

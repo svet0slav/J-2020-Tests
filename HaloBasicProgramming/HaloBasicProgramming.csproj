@@ -51,7 +51,7 @@
     <Compile Include="ProgramNodesSum.cs" />
     <Compile Include="ProgramPossibleFSMMax.cs" />
     <Compile Include="ProgramRoboPathsMatrix.cs" />
-    <Compile Include="ProgramStack.cs" />
+    <Compile Include="ProgramAwayOut.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +64,7 @@
     <Content Include="Description\LongestSubstring.txt" />
     <Content Include="Description\MergeClasses.txt" />
     <Content Include="Description\PossibleFSMMax.txt" />
+    <Content Include="Description\AwayOut-Stack.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
